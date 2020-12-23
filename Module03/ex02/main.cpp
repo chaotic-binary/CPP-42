@@ -4,6 +4,7 @@
 int	main( void ) {
 	FragTrap CruelCat ("CruelCat");
 	ScavTrap BoringHuman ("Bob");
+	std::cout << std::endl;
 	CruelCat.rangedAttack("wall");
 	BoringHuman.meleeAttack("his boss");
 	CruelCat.takeDamage(5);

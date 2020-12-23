@@ -13,15 +13,15 @@ class	ScavTrap
 
 		ScavTrap & operator=(ScavTrap const & rhs);
 
-		void	rangedAttack(std::string const & target);
-		void	meleeAttack(std::string const & target);
+		void	rangedAttack(std::string const & target) const;
+		void	meleeAttack(std::string const & target) const;
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 
-		void	challengeNewcomer(std::string const & target);
+		void	challengeNewcomer(std::string const & target) const;
 
 	private:
-		std::string			_name;
+		const std::string	_name;
 		unsigned int		_hitPoints;
 		unsigned int		_maxHitPoints;
 		unsigned int		_energyPoints;
@@ -31,7 +31,8 @@ class	ScavTrap
 		unsigned int		_rangedAttackDamage;
 		unsigned int		_armor;
 
-		void				_resourceMessage(int mode) const;
+        void                _printLog() const;
+		void				_resourceMessage(char mode) const;
 };
 
 #endif

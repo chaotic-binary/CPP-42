@@ -2,7 +2,7 @@
 
 int	main( void ) {
 	FragTrap CruelCat ("CruelCat");
-	FragTrap BoringHuman ("Bob");
+    FragTrap BoringHuman ("Bob");
 	CruelCat.rangedAttack("wall");
 	BoringHuman.meleeAttack("his boss");
 	CruelCat.takeDamage(5);

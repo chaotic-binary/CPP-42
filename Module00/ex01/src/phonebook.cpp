@@ -1,8 +1,8 @@
 #include "phonebook.hpp"
 
 void	error_exit() {
-	std::cout << "Input error!\n";
-	exit(0);
+	std::cerr << "Input error!\n";
+	exit(1);
 }
 
 static int	index_search(void) {
@@ -15,11 +15,11 @@ static int	index_search(void) {
 	try {
 		n = stoi(input);
 	} catch(std::exception &err) {
-		std::cout << "Error! Wrong input!\n";
+		std::cerr << "Error! Wrong input, do SEARCH again\n";
 		return (-1);
 	}
 	if (n < 1 || n > Contact::getContactCount()) {
-		std::cout << "Error! Index is incorrect!\n";
+		std::cerr << "Error! Index is incorrect, do SEARCH again!\n";
 		return (-1);
 	}
 	return (n - 1);
@@ -57,9 +57,9 @@ int	main(void) {
 			for (int i = 0; i < Contact::getContactCount(); i++) {
 				contacts[i].PrintContactPreview(i);
 			}
-			while ((n = index_search()) < 0)
-				;
-			contacts[n].Contact::PrintContactFull();
+			if ((n = index_search()) >= 0) {
+                contacts[n].Contact::PrintContactFull();
+            }
 		}
 	}
 	return (0);

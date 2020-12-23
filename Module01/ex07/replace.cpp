@@ -5,19 +5,19 @@ static int	error_msg(int err_type)
 	switch (err_type)
 	{
 		case ERR_ARG:
-			std::cout << "Invalid number of arguments: 3 required\n";
+			std::cerr << "Invalid number of arguments: 3 required\n";
 			break;
 		case ERR_EMPTY:
-			std::cout << "Strings shouldn't be empty\n";
+			std::cerr << "Strings shouldn't be empty\n";
 			break;
 		case ERR_OPEN:
-			std::cout << "Error while opening the file\n";
+			std::cerr << "Error while opening the file\n";
 			break;
 		case ERR_CREATE:
-			std::cout << "Error while creating the file\n";
+			std::cerr << "Error while creating the file\n";
 			break;
 		default:
-			std::cout << "Error!\n";
+			std::cerr << "Error!\n";
 			break;
 	}
 	return (-1);
