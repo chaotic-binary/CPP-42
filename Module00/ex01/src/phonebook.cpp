@@ -58,8 +58,8 @@ int	main(void) {
 				contacts[i].PrintContactPreview(i);
 			}
 			if ((n = index_search()) >= 0) {
-                contacts[n].Contact::PrintContactFull();
-            }
+				contacts[n].Contact::PrintContactFull();
+			}
 		}
 	}
 	return (0);

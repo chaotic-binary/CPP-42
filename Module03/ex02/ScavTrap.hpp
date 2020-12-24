@@ -1,7 +1,6 @@
 #ifndef SCAVTRAP_H
 # define SCAVTRAP_H
 
-# include <iostream>
 # include "ClapTrap.hpp"
 
 class	ScavTrap : public ClapTrap
@@ -13,6 +12,9 @@ class	ScavTrap : public ClapTrap
 		~ScavTrap(void);
 
 		ScavTrap & operator=(ScavTrap const & rhs);
+
+		virtual void	rangedAttack(std::string const &target) const;
+		virtual void	meleeAttack(std::string const &target) const;
 
 		void	challengeNewcomer(std::string const & target) const;
 };

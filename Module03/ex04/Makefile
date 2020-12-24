@@ -3,9 +3,9 @@ NAME		=	test
 SRC			=	FragTrap.cpp ScavTrap.cpp ClapTrap.cpp NinjaTrap.cpp SuperTrap.cpp
 O_DIR		=	./bin
 OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o)) \
-                $(addprefix $(O_DIR)/, $(MAIN:cpp=o))
+				$(addprefix $(O_DIR)/, $(MAIN:cpp=o))
 INCLUDE		=	$(SRC:cpp=hpp)
-MAIN        =   main.cpp
+MAIN		=	main.cpp
 
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 

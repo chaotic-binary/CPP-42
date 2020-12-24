@@ -3,17 +3,17 @@
 	int	Contact::_contats_count = 0;
 
 	const std::string	Contact::_fieldnames[FIELDS_NUM] = {"index",
-                                                            "first name",
-                                                            "last name",
-                                                            "nickname",
-                                                            "login",
-                                                            "postal address",
-                                                            "e-mail address",
-                                                            "phone number",
-                                                            "birthday date",
-                                                            "favorite meal",
-                                                            "underwear color",
-                                                            "darkest secret"};
+															"first name",
+															"last name",
+															"nickname",
+															"login",
+															"postal address",
+															"e-mail address",
+															"phone number",
+															"birthday date",
+															"favorite meal",
+															"underwear color",
+															"darkest secret"};
 
 	Contact::Contact(void) { }
 	Contact::~Contact(void) { }

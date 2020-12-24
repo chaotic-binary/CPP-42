@@ -1,9 +1,11 @@
 NAME		= test
 
-SRC			= Weapon.cpp HumanA.cpp HumanB.cpp main.cpp
-INC			= Weapon.hpp HumanA.hpp HumanB.hpp
+SRC			= Weapon.cpp HumanA.cpp HumanB.cpp
 O_DIR		= ./bin
-OBJ			= $(addprefix $(O_DIR)/, $(SRC:cpp=o))
+OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o)) \
+				$(addprefix $(O_DIR)/, $(MAIN:cpp=o))
+INCLUDE		=	$(SRC:cpp=hpp)
+MAIN		=   main.cpp
 
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
@@ -11,7 +13,7 @@ FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(O_DIR)/%.o:%.cpp | $(O_DIR) $(INC)
+$(O_DIR)/%.o:%.cpp | $(O_DIR) $(INCLUDE)
 	@clang++ $(FLAGS) -o $@ -c $<
 
 $(NAME): $(OBJ)

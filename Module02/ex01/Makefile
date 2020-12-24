@@ -1,9 +1,11 @@
 NAME		=	test
 
-SRC			=	Fixed.class.cpp main.cpp
+SRC			=	Fixed.class.cpp
 O_DIR		=	./bin
-OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o))
-INCLUDE		=	*.hpp
+OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o)) \
+				$(addprefix $(O_DIR)/, $(MAIN:cpp=o))
+INCLUDE		=	$(SRC:cpp=hpp)
+MAIN		=   main.cpp
 
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 

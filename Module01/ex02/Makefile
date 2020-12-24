@@ -1,17 +1,20 @@
-NAME		= zombie
+NAME		=   zombie
 
-SRC			= Zombie.cpp ZombieEvent.cpp main.cpp
-INC			= Zombie.hpp ZombieEvent.hpp
+SRC			=   Zombie.cpp ZombieEvent.cpp
+INC			=   Zombie.hpp ZombieEvent.hpp
 O_DIR		=	./bin
-OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o))
+OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o)) \
+				$(addprefix $(O_DIR)/, $(MAIN:cpp=o))
+INCLUDE		=	$(SRC:cpp=hpp)
+MAIN		=   main.cpp
 
-FLAGS		= -Wall -Wextra -Werror -std=c++98
+FLAGS		=   -Wall -Wextra -Werror -std=c++98
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(O_DIR)/%.o:%.cpp | $(O_DIR) $(INC)
+$(O_DIR)/%.o:%.cpp | $(O_DIR) $(INCLUDE)
 	@clang++ $(FLAGS) -o $@ -c $<
 
 $(NAME): $(OBJ)
