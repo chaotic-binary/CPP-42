@@ -31,7 +31,7 @@ class	FragTrap
 		unsigned int		_rangedAttackDamage;
 		unsigned int		_armor;
 
-		void                _printLog() const;
+		void				_printLog() const;
 		void				_resourceMessage(char mode) const;
 };
 

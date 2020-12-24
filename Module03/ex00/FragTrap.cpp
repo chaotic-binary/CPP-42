@@ -4,10 +4,12 @@ FragTrap::~FragTrap(void) {
 	std::cout << "\nGame over, FR4G-TP " << this->_name << std::endl;
 }
 
-FragTrap::FragTrap(void) {}
+FragTrap::FragTrap(void) {
+	std::cout << "Default FragTrap came to this World!\n";
+}
 
 FragTrap::FragTrap(const std::string &name) : \
-    _name(name), \
+	_name(name), \
 	_hitPoints(100), \
 	_maxHitPoints(100), \
 	_energyPoints(100), \
@@ -16,60 +18,70 @@ FragTrap::FragTrap(const std::string &name) : \
 	_meleeAttackDamage(30), \
 	_rangedAttackDamage(20), \
 	_armor(5) {
-    _printLog();
+	_printLog();
 	std::cout << " is joining the game!\n";
 }
 
 FragTrap::FragTrap(FragTrap const & src) : \
-    _name(src._name), \
-    _hitPoints (src._hitPoints), _maxHitPoints (src._maxHitPoints), \
-    _energyPoints (src._energyPoints), _maxEnergyPoints (src._maxEnergyPoints), \
-    _level(src._level), \
-    _meleeAttackDamage(src._meleeAttackDamage), \
-    _rangedAttackDamage (src._rangedAttackDamage), \
-    _armor(src._armor) {
-    std::cout << "New clone of FragTrap!\n";
+	_name(src._name), \
+	_hitPoints (src._hitPoints), _maxHitPoints (src._maxHitPoints), \
+	_energyPoints (src._energyPoints), _maxEnergyPoints (src._maxEnergyPoints), \
+	_level(src._level), \
+	_meleeAttackDamage(src._meleeAttackDamage), \
+	_rangedAttackDamage (src._rangedAttackDamage), \
+	_armor(src._armor) {
+	std::cout << "New clone of FragTrap!\n";
 }
 
 FragTrap & FragTrap::operator=(FragTrap const & rhs) {
-    FragTrap lhs = FragTrap(rhs);
+    *(const_cast<std::string*>(&_name)) = rhs._name;
+    _hitPoints = rhs._hitPoints;
+    _maxHitPoints = rhs._maxHitPoints;
+	_energyPoints = rhs._energyPoints;
+	_maxEnergyPoints = rhs._maxEnergyPoints;
+	_level = rhs._level;
+	_meleeAttackDamage = rhs._meleeAttackDamage;
+	_rangedAttackDamage = rhs._rangedAttackDamage;
+	_armor = rhs._armor;
 	return (*this);
 }
 
 void	FragTrap::rangedAttack(std::string const & target) const {
-    _printLog();
+	_printLog();
 	std::cout << " attacks " << target << " at range, causing " \
 			<< _rangedAttackDamage << " points of damage using special FR4G-TP powers! \n";
+	std::cout << "Ha-HA!\n";
 }
 
 void	FragTrap::meleeAttack(std::string const & target) const {
-    _printLog();
+	_printLog();
 	std::cout << " attacks " << target << " causing " << _meleeAttackDamage << \
-                " points of melee damage using special FR4G-TP fight technique\n";
+				" points of melee damage using special FR4G-TP fight technique\n";
+	std::cout << "BOOYAH!!\n";
 }
 
 void	FragTrap::_printLog() const {
-    std::cout << "\nFR4G-TP " << _name;
+	std::cout << "\nFR4G-TP " << _name;
 }
 
 void	FragTrap::_resourceMessage(char mode) const {
-    std::cout << _name;
-    if (mode == 'H')
-        std::cout << " now has " << _hitPoints << "/" << _maxHitPoints << " HP left\n";
-    if (mode == 'E')
-        std::cout << "'s energy level is " << _energyPoints << "/" <<  _maxEnergyPoints << std::endl;
+	std::cout << _name;
+	if (mode == 'H')
+		std::cout << " now has " << _hitPoints << "/" << _maxHitPoints << " HP left\n";
+	if (mode == 'E')
+		std::cout << "'s energy level is " << _energyPoints << "/" <<  _maxEnergyPoints << std::endl;
 }
 
 void	FragTrap::takeDamage(unsigned int amount) {
 	if (amount <= _armor) {
-        _printLog();
+		_printLog();
 		std::cout << " was protected by his shiny armor!\n";
 		return ;
 	}
 	else
 		amount -= _armor;
 	(amount < _hitPoints) ? _hitPoints -= amount : _hitPoints = 0;
-    _printLog();
+	_printLog();
 	std::cout << " took " << amount << " points of damage\n";
 	_resourceMessage('H');
 }
@@ -91,8 +103,8 @@ void	FragTrap::beRepaired(unsigned int amount) {
 	{
 		std::cout << std::endl;
 		std::cout << "What shall be repaired?\n";
-        _resourceMessage('H');
-        _resourceMessage('E');
+		_resourceMessage('H');
+		_resourceMessage('E');
 		std::cout << "Put 1 for HP, 2 for energy\n";
 		int value = 0;
 		if (std::cin.eof()) {
@@ -125,12 +137,12 @@ void	FragTrap::vaulthunter_dot_exe(std::string const & target) {
 									"You locked up in the cinema with Russian movies on repeat :(" };
 
 	if (_energyPoints < 25) {
-        _printLog();
-        std::cout << ": Not enough energy for vaulthunter.exe!\n";
+		_printLog();
+		std::cout << ": Not enough energy for vaulthunter.exe!\n";
 		return;
 	}
 	_energyPoints -= 25;
-    _printLog();
+	_printLog();
 	std::cout << " used vaulthunter.exe on " << target << std::endl;
 	unsigned int i = std::rand() % 5;
 	std::cout << attacks[i] << std::endl << i * (std::rand() % 10) << " points of damage caused\n";
