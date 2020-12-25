@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _model(CLmodel) {
+ClapTrap::ClapTrap() : _model(CL) {
 	std::cout << "Default ClapTrap came to this World!\n";
 }
 
@@ -17,7 +17,8 @@ ClapTrap::ClapTrap(const ClapTrap & src) :
 										_level(src._level),
 										_meleeAttackDamage(src._meleeAttackDamage),
 										_rangedAttackDamage (src._rangedAttackDamage),
-										_armor(src._armor) {
+										_armor(src._armor),
+										_model (src._model){
 	std::cout << "\nNew ClapTrap cloned!\n";
 }
 
@@ -35,7 +36,7 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs) {
 }
 
 ClapTrap::ClapTrap(const std::string &name,
-					const std::string &model,
+					const unsigned char	model,
 					unsigned int hitPoints,
 					unsigned int maxHitPoints,
 					unsigned int energyPoints,
@@ -56,12 +57,13 @@ ClapTrap::ClapTrap(const std::string &name,
 										_model(model){
 	std::cout << "\nNew ClapTrap born!\n";
 }
-ClapTrap::ClapTrap(const std::string &model) : _model(model) {
+
+ClapTrap::ClapTrap(const unsigned char model) : _model(model) {
 	std::cout << "Default ClapTrap came to this World!\n";
 }
 
 const std::string & ClapTrap::getName() const { return _name; }
-const std::string & ClapTrap::getModel() const { return _model; }
+unsigned char ClapTrap::getModel() const { return _model; }
 unsigned int ClapTrap::getHitPoints() const { return _hitPoints; }
 unsigned int ClapTrap::getMaxHitPoints() const { return _maxHitPoints; }
 unsigned int ClapTrap::getEnergyPoints() const { return _energyPoints; }
@@ -72,43 +74,43 @@ unsigned int ClapTrap::getRangedAttackDamage() const { return _rangedAttackDamag
 unsigned int ClapTrap::getArmor() const {return _armor;}
 
 void ClapTrap::setName(const std::string &name) {
-    *(const_cast<std::string*>(&_name)) = name;
+	*(const_cast<std::string*>(&_name)) = name;
 }
 
 void ClapTrap::setHitPoints(unsigned int value) {
-    _hitPoints = value;
+	_hitPoints = value;
 }
 
 void ClapTrap::setMaxHitPoints(unsigned int value) {
-    _maxHitPoints = value;
+	_maxHitPoints = value;
 }
 
 void ClapTrap::setEnergyPoints(unsigned int value) {
-   _energyPoints = value;
+	_energyPoints = value;
 }
 
 void ClapTrap::setMaxEnergyPoints(unsigned int value) {
-   _maxEnergyPoints = value;
+	_maxEnergyPoints = value;
 }
 
 void ClapTrap::setLevel(unsigned int value) {
-   _level = value;
+	_level = value;
 }
 
 void ClapTrap::setMeleeAttackDamage(unsigned int value) {
-   _meleeAttackDamage = value;
+	_meleeAttackDamage = value;
 }
 
 void ClapTrap::setRangedAttackDamage(unsigned int value) {
-   _rangedAttackDamage = value;
+	_rangedAttackDamage = value;
 }
 
 void ClapTrap::setArmor(unsigned int value) {
-   _armor = value;
+	_armor = value;
 }
 
 void	ClapTrap::_printLog() const {
-	std::cout << _model;
+	std::cout << modelId[_model];
 	if (!_name.empty())
 		std::cout << " " << _name;
 }

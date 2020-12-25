@@ -3,11 +3,16 @@
 
 # include <iostream>
 
-# define FRmodel "FR4G-TP"
-# define SCmodel "SC4V-TP"
-# define NNJmodel "NN7A-TP"
-# define SPmodel "SP3R-TP"
-# define CLmodel "CL4P-TP"
+const std::string modelId[] = {"FR4G-TP", "SC4V-TP",\
+					"NN7A-TP", "SP3R-TP", "CL4P-TP"};
+
+enum {
+	FR = 0,
+	SC = 1,
+	NN = 2,
+	SP = 3,
+	CL = 4
+};
 
 class ClapTrap
 {
@@ -15,7 +20,7 @@ public:
 	ClapTrap();
 	ClapTrap(const ClapTrap &copy);
 	ClapTrap(const std::string &name,
-			const std::string &model,
+			const unsigned char	model,
 			unsigned int hitPoints,
 			unsigned int maxHitPoints,
 			unsigned int energyPoints,
@@ -33,14 +38,14 @@ public:
 	void			beRepaired(unsigned int amount);
 
 	const std::string &getName() const;
-	const std::string &getModel() const;
+	unsigned char getModel() const;
 
 protected:
 	void	_printLog() const;
 	void	_attackMessage(char mode, std::string const &target) const;
 	void	_resourceMessage(char mode) const;
 
-	ClapTrap(const std::string &model);
+	ClapTrap(const unsigned char model);
 
 	const std::string	_name;
 	unsigned int		_hitPoints;
@@ -52,7 +57,7 @@ protected:
 	unsigned int		_rangedAttackDamage;
 	unsigned int		_armor;
 
-	const std::string	_model;
+	const unsigned char	_model;
 };
 
 #endif

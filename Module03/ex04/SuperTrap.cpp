@@ -6,12 +6,12 @@ SuperTrap::~SuperTrap(void) {
 	std::cout << std::endl;
 }
 
-SuperTrap::SuperTrap(void) : ClapTrap(SPmodel) {
+SuperTrap::SuperTrap(void) : ClapTrap(SP) {
 	std::cout << "Default SuperTrap came to this World!\n";
 }
 
 SuperTrap::SuperTrap(const std::string & name) : \
-	ClapTrap(name, SPmodel, 100, 100, 120, 120, 1, 60, 20, 5),
+	ClapTrap(name, SP, 100, 100, 120, 120, 1, 60, 20, 5),
 	FragTrap(name),
 	NinjaTrap(name) {
 	_printLog();

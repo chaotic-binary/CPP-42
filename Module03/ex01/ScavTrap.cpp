@@ -8,7 +8,7 @@ ScavTrap::ScavTrap(void) {
 	std::cout << "Default ScavTrap came to this World!\n";
 }
 
-ScavTrap::ScavTrap(const std::string name) : \
+ScavTrap::ScavTrap(const std::string &name) : \
 											_name(name),
 											_hitPoints(100),
 											_maxHitPoints(100),

@@ -1,6 +1,6 @@
 NAME		=	test
 
-SRC			=	FragTrap.cpp ScavTrap.cpp ClapTrap.cpp NinjaTrap.cpp SuperTrap.cpp
+SRC			=	Sorcerer.cpp, Victim.cpp, Peon.cpp
 O_DIR		=	./bin
 OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o)) \
 				$(addprefix $(O_DIR)/, $(MAIN:cpp=o))

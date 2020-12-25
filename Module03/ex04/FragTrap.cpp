@@ -6,12 +6,12 @@ FragTrap::~FragTrap(void) {
 	std::cout << std::endl;
 }
 
-FragTrap::FragTrap(void) : ClapTrap(FRmodel) {
+FragTrap::FragTrap(void) : ClapTrap(FR) {
 	std::cout << "Default FragTrap came to this World!\n";
 }
 
 FragTrap::FragTrap(const std::string & name) : \
-	ClapTrap(name, FRmodel, 100, 100, 100, 100, 1, 30, 20, 5) {
+	ClapTrap(name, FR, 100, 100, 100, 100, 1, 30, 20, 5) {
 	_printLog();
 	std::cout << " is joining the game!\n";
 }

@@ -6,12 +6,12 @@ ScavTrap::~ScavTrap(void) {
 	std::cout << std::endl;
 }
 
-ScavTrap::ScavTrap(void) : ClapTrap(SCmodel) {
+ScavTrap::ScavTrap(void) : ClapTrap(SC) {
 	std::cout << "Default ScavTrap came to this World!\n";
 }
 
-ScavTrap::ScavTrap(const std::string name) : \
-	 ClapTrap(name, SCmodel, 100, 100, 50, 50, 1, 20, 15, 3) {
+ScavTrap::ScavTrap(const std::string & name) : \
+	 ClapTrap(name, SC, 100, 100, 50, 50, 1, 20, 15, 3) {
 	_printLog();
 	std::cout << " is our new player!\n";
 }
