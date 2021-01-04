@@ -35,7 +35,6 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs) {
 	_meleeAttackDamage = rhs._meleeAttackDamage;
 	_rangedAttackDamage = rhs._rangedAttackDamage;
 	_armor = rhs._armor;
-	*(const_cast<unsigned char*>(&_model)) = rhs._model;
 	return (*this);
 }
 
@@ -80,16 +79,16 @@ void	ClapTrap::_resourceMessage(char mode) const {
 		std::cout << "'s energy level is " << _energyPoints << "/" << _maxEnergyPoints << std::endl;
 }
 
-void   ClapTrap::_attackMessage(char mode, std::string const &target) const {
-    const std::string modelName[] = {"FragTrap", "ScavTrap",\
+void	ClapTrap::_attackMessage(char mode, std::string const &target) const {
+	const std::string modelName[] = {"FragTrap", "ScavTrap",\
 					"Ninja", "SuperTrap", "ClapTrap"};
-    _printLog();
-    std::cout << " attacks " << target;
-    if (mode == 'R')
-        std::cout << " at range, causing " << _rangedAttackDamage << \
+	_printLog();
+	std::cout << " attacks " << target;
+	if (mode == 'R')
+		std::cout << " at range, causing " << _rangedAttackDamage << \
 				" points of damage using special " << modelName[_model] << " powers\n";
-    if (mode == 'M')
-        std::cout << " causing " << _meleeAttackDamage << \
+	if (mode == 'M')
+		std::cout << " causing " << _meleeAttackDamage << \
 				" points of melee damage using special " << modelName[_model] << " fight technique\n";
 }
 

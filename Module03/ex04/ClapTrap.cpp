@@ -35,7 +35,6 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs) {
 	_meleeAttackDamage = rhs._meleeAttackDamage;
 	_rangedAttackDamage = rhs._rangedAttackDamage;
 	_armor = rhs._armor;
-	*(const_cast<unsigned char*>(&_model)) = rhs._model;
 	return (*this);
 }
 

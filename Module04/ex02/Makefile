@@ -1,10 +1,10 @@
 NAME		=	test
 
-SRC			=	Sorcerer.cpp Victim.cpp Peon.cpp Rustic.cpp
-O_DIR		=	./bin
+SRC			=	Squad.cpp TacticalMarine.cpp AssaultTerminator.cpp
 OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o)) \
 				$(addprefix $(O_DIR)/, $(MAIN:cpp=o))
-INCLUDE		=	$(SRC:cpp=hpp)
+INCLUDE		=	$(SRC:cpp=hpp) \
+				ISpaceMarine.hpp ISquad.hpp
 MAIN		=	main.cpp
 
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98

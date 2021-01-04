@@ -1,6 +1,6 @@
 NAME		=	test
 
-SRC			=	Sorcerer.cpp Victim.cpp Peon.cpp Rustic.cpp
+SRC			=	AWeapon.cpp PlasmaRifle.cpp PowerFist.cpp Enemy.cpp SuperMutant.cpp RadScorpion.cpp Character.cpp
 O_DIR		=	./bin
 OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o)) \
 				$(addprefix $(O_DIR)/, $(MAIN:cpp=o))

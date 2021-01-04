@@ -1,7 +1,7 @@
 
 #include "Sorcerer.hpp"
-#include "Victim.hpp"
 #include "Peon.hpp"
+#include "Rustic.hpp"
 
 int main()
 {
@@ -11,5 +11,9 @@ int main()
 	std::cout << robert << jim << joe;
 	robert.polymorph(jim);
 	robert.polymorph(joe);
+
+	Rustic bill("Bill");
+	std::cout << bill;
+	robert.polymorph(bill);
 	return 0;
 }
