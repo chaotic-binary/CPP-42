@@ -21,7 +21,7 @@ FragTrap::FragTrap(FragTrap const & src) : ClapTrap(src) {
 }
 
 FragTrap & FragTrap::operator=(FragTrap const & rhs) {
-    ClapTrap::operator=(rhs);
+	ClapTrap::operator=(rhs);
 	return (*this);
 }
 

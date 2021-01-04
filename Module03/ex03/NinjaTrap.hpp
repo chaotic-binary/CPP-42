@@ -12,6 +12,7 @@ public:
 	~NinjaTrap(void);
 	NinjaTrap & operator=(NinjaTrap const & rhs);
 
+	virtual void	meleeAttack(std::string const &target) const;
 	void ninjaShoebox(ClapTrap const & target) const;
 };
 

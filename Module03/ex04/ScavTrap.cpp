@@ -21,7 +21,7 @@ ScavTrap::ScavTrap(ScavTrap const & src) : ClapTrap(src) {
 }
 
 ScavTrap & ScavTrap::operator=(ScavTrap const & rhs) {
-    ClapTrap::operator=(rhs);
+	ClapTrap::operator=(rhs);
 	return (*this);
 }
 

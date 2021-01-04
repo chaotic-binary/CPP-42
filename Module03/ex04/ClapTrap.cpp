@@ -1,5 +1,8 @@
 #include "ClapTrap.hpp"
 
+const std::string ClapTrap::modelId[] = {"FR4G-TP", "SC4V-TP",\
+					"NN7A-TP", "SP3R-TP", "CL4P-TP"};
+
 ClapTrap::ClapTrap() : _model(CL) {
 	std::cout << "Default ClapTrap came to this World!\n";
 }
@@ -18,7 +21,7 @@ ClapTrap::ClapTrap(const ClapTrap & src) :
 										_meleeAttackDamage(src._meleeAttackDamage),
 										_rangedAttackDamage (src._rangedAttackDamage),
 										_armor(src._armor),
-										_model (src._model){
+										_model (src._model) {
 	std::cout << "\nNew ClapTrap cloned!\n";
 }
 
@@ -32,6 +35,7 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs) {
 	_meleeAttackDamage = rhs._meleeAttackDamage;
 	_rangedAttackDamage = rhs._rangedAttackDamage;
 	_armor = rhs._armor;
+	*(const_cast<unsigned char*>(&_model)) = rhs._model;
 	return (*this);
 }
 
@@ -79,15 +83,17 @@ void	ClapTrap::_resourceMessage(char mode) const {
 		std::cout << "'s energy level is " << _energyPoints << "/" << _maxEnergyPoints << std::endl;
 }
 
-void   ClapTrap::_attackMessage(char mode, std::string const &target) const {
+void	ClapTrap::_attackMessage(char mode, std::string const &target) const {
+	const std::string modelName[] = {"FragTrap", "ScavTrap",\
+					"Ninja", "SuperTrap", "ClapTrap"};
 	_printLog();
 	std::cout << " attacks " << target;
 	if (mode == 'R')
 		std::cout << " at range, causing " << _rangedAttackDamage << \
-				" points of damage using special " << _model << " powers\n";
+				" points of damage using special " << ((_model == SP ) ? "FragTrap" : modelName[_model]) << " powers\n";
 	if (mode == 'M')
-		std::cout << " causing " << _meleeAttackDamage << \
-				" points of melee damage using special " << _model << " fight technique\n";
+		std::cout << " causing " << _meleeAttackDamage << " points of melee damage using special " \
+			<< ((_model == SP) ? "Ninja" : modelName[_model]) << " fight technique\n";
 }
 
 void	ClapTrap::rangedAttack(std::string const &target) const {

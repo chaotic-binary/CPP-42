@@ -21,8 +21,13 @@ NinjaTrap::NinjaTrap(NinjaTrap const & src) : ClapTrap(src) {
 }
 
 NinjaTrap & NinjaTrap::operator=(NinjaTrap const & rhs) {
-    ClapTrap::operator=(rhs);
+	ClapTrap::operator=(rhs);
 	return (*this);
+}
+
+void	NinjaTrap::meleeAttack(std::string const &target) const {
+	_attackMessage('M', target);
+	std::cout << "Ninjaaaaaaa!!\n\n";
 }
 
 void NinjaTrap::ninjaShoebox(ClapTrap const & target) const {

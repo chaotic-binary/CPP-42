@@ -1,30 +1,51 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Sorcerer.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: valeria <valeria@student.21-school.ru>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/25 04:07:48 by valeria           #+#    #+#             */
-/*   Updated: 2020/12/25 04:07:48 by valeria          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Sorcerer.hpp"
 
-Sorcerer::Sorcerer()
+Sorcerer::Sorcerer() : _name("New Sorcerer"), _title("Default")
 {
+	std::cout << _name << ", " << _title << ", is born!" << std::endl;
+}
+
+Sorcerer::Sorcerer(const std::string &name, const std::string &title) :
+	_name(name), _title(title)
+{
+	std::cout << _name << ", " << _title << ", is born!" << std::endl;
 }
 
 Sorcerer::~Sorcerer()
 {
+	std::cout << this->_name << ", " << this->_title << ", is dead. Consequences will never be the same!" << std::endl;
 }
 
-Sorcerer::Sorcerer(const Sorcerer &copy)
+Sorcerer::Sorcerer(const Sorcerer &copy) : \
+	_name(copy._name), _title(copy._title)
 {
 }
 
 Sorcerer	&Sorcerer::operator=(const Sorcerer &copy)
 {
+	this->_name = copy._name;
+	this->_title = copy._title;
 	return (*this);
+}
+
+const std::string&		Sorcerer::getName() const
+{
+	return (this->_name);
+}
+
+const std::string&		Sorcerer::getTitle() const
+{
+	return (this->_title);
+}
+
+void	Sorcerer::polymorph(Victim const &victim) const
+{
+	victim.getPolymorphed();
+	return;
+}
+
+std::ostream	&operator<<(std::ostream &os, Sorcerer const &sorcerer)
+{
+	os << "I am " << sorcerer.getName() << ", " << sorcerer.getTitle() << ", and I like ponies!" << std::endl;
+	return (os);
 }

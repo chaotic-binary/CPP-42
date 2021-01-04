@@ -3,9 +3,6 @@
 
 # include <iostream>
 
-const std::string modelId[] = {"FR4G-TP", "SC4V-TP",\
-					"NN7A-TP", "SP3R-TP", "CL4P-TP"};
-
 enum {
 	FR = 0,
 	SC = 1,
@@ -58,6 +55,7 @@ protected:
 	unsigned int		_armor;
 
 	const unsigned char	_model;
+	static const std::string modelId[];
 };
 
 #endif

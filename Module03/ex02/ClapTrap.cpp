@@ -1,5 +1,8 @@
 #include "ClapTrap.hpp"
 
+const std::string ClapTrap::modelId[] = {"FR4G-TP", "SC4V-TP",\
+					"NN7A-TP", "SP3R-TP", "CL4P-TP"};
+
 ClapTrap::ClapTrap() : _model(CL) {
 	std::cout << "Default ClapTrap came to this World!\n";
 }
@@ -18,20 +21,21 @@ ClapTrap::ClapTrap(const ClapTrap & src) :
 										_meleeAttackDamage(src._meleeAttackDamage),
 										_rangedAttackDamage (src._rangedAttackDamage),
 										_armor(src._armor),
-										_model (src._model){
+										_model (src._model) {
 	std::cout << "\nNew ClapTrap cloned!\n";
 }
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs) {
-    *(const_cast<std::string*>(&_name)) = rhs._name;
-    _hitPoints = rhs._hitPoints;
-    _maxHitPoints = rhs._maxHitPoints;
-    _energyPoints = rhs._energyPoints;
-    _maxEnergyPoints = rhs._maxEnergyPoints;
-    _level = rhs._level;
-    _meleeAttackDamage = rhs._meleeAttackDamage;
-    _rangedAttackDamage = rhs._rangedAttackDamage;
-    _armor = rhs._armor;
+	*(const_cast<std::string*>(&_name)) = rhs._name;
+	_hitPoints = rhs._hitPoints;
+	_maxHitPoints = rhs._maxHitPoints;
+	_energyPoints = rhs._energyPoints;
+	_maxEnergyPoints = rhs._maxEnergyPoints;
+	_level = rhs._level;
+	_meleeAttackDamage = rhs._meleeAttackDamage;
+	_rangedAttackDamage = rhs._rangedAttackDamage;
+	_armor = rhs._armor;
+	*(const_cast<unsigned char*>(&_model)) = rhs._model;
 	return (*this);
 }
 
@@ -62,53 +66,6 @@ ClapTrap::ClapTrap(const unsigned char model) : _model(model) {
 	std::cout << "Default ClapTrap came to this World!\n";
 }
 
-const std::string & ClapTrap::getName() const { return _name; }
-unsigned char ClapTrap::getModel() const { return _model; }
-unsigned int ClapTrap::getHitPoints() const { return _hitPoints; }
-unsigned int ClapTrap::getMaxHitPoints() const { return _maxHitPoints; }
-unsigned int ClapTrap::getEnergyPoints() const { return _energyPoints; }
-unsigned int ClapTrap::getMaxEnergyPoints() const { return _maxEnergyPoints; }
-unsigned int ClapTrap::getLevel() const { return _level; }
-unsigned int ClapTrap::getMeleeAttackDamage() const { return _meleeAttackDamage; }
-unsigned int ClapTrap::getRangedAttackDamage() const { return _rangedAttackDamage; }
-unsigned int ClapTrap::getArmor() const {return _armor;}
-
-void ClapTrap::setName(const std::string &name) {
-	*(const_cast<std::string*>(&_name)) = name;
-}
-
-void ClapTrap::setHitPoints(unsigned int value) {
-	_hitPoints = value;
-}
-
-void ClapTrap::setMaxHitPoints(unsigned int value) {
-	_maxHitPoints = value;
-}
-
-void ClapTrap::setEnergyPoints(unsigned int value) {
-	_energyPoints = value;
-}
-
-void ClapTrap::setMaxEnergyPoints(unsigned int value) {
-	_maxEnergyPoints = value;
-}
-
-void ClapTrap::setLevel(unsigned int value) {
-	_level = value;
-}
-
-void ClapTrap::setMeleeAttackDamage(unsigned int value) {
-	_meleeAttackDamage = value;
-}
-
-void ClapTrap::setRangedAttackDamage(unsigned int value) {
-	_rangedAttackDamage = value;
-}
-
-void ClapTrap::setArmor(unsigned int value) {
-	_armor = value;
-}
-
 void	ClapTrap::_printLog() const {
 	std::cout << modelId[_model];
 	if (!_name.empty())
@@ -124,14 +81,16 @@ void	ClapTrap::_resourceMessage(char mode) const {
 }
 
 void   ClapTrap::_attackMessage(char mode, std::string const &target) const {
-	_printLog();
-	std::cout << " attacks " << target;
-	if (mode == 'R')
-		std::cout << " at range, causing " << _rangedAttackDamage << \
-				" points of damage using special " << _model << " powers\n";
-	if (mode == 'M')
-		std::cout << " causing " << _meleeAttackDamage << \
-				" points of melee damage using special " << _model << " fight technique\n";
+    const std::string modelName[] = {"FragTrap", "ScavTrap",\
+					"Ninja", "SuperTrap", "ClapTrap"};
+    _printLog();
+    std::cout << " attacks " << target;
+    if (mode == 'R')
+        std::cout << " at range, causing " << _rangedAttackDamage << \
+				" points of damage using special " << modelName[_model] << " powers\n";
+    if (mode == 'M')
+        std::cout << " causing " << _meleeAttackDamage << \
+				" points of melee damage using special " << modelName[_model] << " fight technique\n";
 }
 
 void	ClapTrap::rangedAttack(std::string const &target) const {

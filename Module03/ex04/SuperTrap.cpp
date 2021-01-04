@@ -23,7 +23,7 @@ SuperTrap::SuperTrap(SuperTrap const & src) : FragTrap(src), NinjaTrap(src) {
 }
 
 SuperTrap & SuperTrap::operator=(SuperTrap const & rhs) {
-    ClapTrap::operator=(rhs);
+	ClapTrap::operator=(rhs);
 	return (*this);
 }
 
