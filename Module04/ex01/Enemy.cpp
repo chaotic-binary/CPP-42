@@ -11,6 +11,7 @@ Enemy::Enemy(int hp, std::string const &type) \
 
 Enemy::~Enemy()
 {
+	this->_type.erase();
 }
 
 Enemy::Enemy(const Enemy &copy) \

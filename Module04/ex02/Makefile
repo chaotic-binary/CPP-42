@@ -1,6 +1,7 @@
 NAME		=	test
 
 SRC			=	Squad.cpp TacticalMarine.cpp AssaultTerminator.cpp
+O_DIR		=	./bin
 OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o)) \
 				$(addprefix $(O_DIR)/, $(MAIN:cpp=o))
 INCLUDE		=	$(SRC:cpp=hpp) \

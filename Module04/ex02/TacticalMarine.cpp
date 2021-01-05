@@ -10,15 +10,13 @@ TacticalMarine::~TacticalMarine()
 	std::cout << "Aaargh ..." << std::endl;
 }
 
-TacticalMarine	&TacticalMarine::operator=(const TacticalMarine &copy)
+TacticalMarine	&TacticalMarine::operator=(const TacticalMarine &)
 {
-	*this = copy;
 	return (*this);
 }
 
-TacticalMarine::TacticalMarine(TacticalMarine const &copy)
+TacticalMarine::TacticalMarine(TacticalMarine const &)
 {
-	*this = copy;
 	std::cout << "Tactical Marine ready for battle" << std::endl;
 }
 

@@ -56,7 +56,7 @@ void	Character::attack(Enemy *enemy)
 {
 	if (!this->_weapon || this->_ap < this->_weapon->getAPCost())
 		return ;
-	if (!enemy || enemy->getHP() <= 0)
+	if (!enemy || enemy->getType().empty())
 	{
 		std::cout << "Enough, your enemy is already dead.\n";
 		return ;
