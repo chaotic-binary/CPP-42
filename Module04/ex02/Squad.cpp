@@ -27,7 +27,10 @@ Squad::Squad(const Squad &copy)
 
 Squad	&Squad::operator=(const Squad &copy)
 {
-	deepCopy(copy);
+	if (this != &copy)
+	{
+		deepCopy(copy);
+	}
 	return (*this);
 }
 

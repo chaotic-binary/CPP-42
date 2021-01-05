@@ -21,8 +21,11 @@ Enemy::Enemy(const Enemy &copy) \
 
 Enemy	&Enemy::operator=(const Enemy &copy)
 {
-	this->_hp = copy._hp;
-	this->_type = copy._type;
+	if (this != &copy)
+	{
+		this->_hp = copy._hp;
+		this->_type = copy._type;
+	}
 	return (*this);
 }
 

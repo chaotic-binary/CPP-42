@@ -20,9 +20,12 @@ AWeapon::AWeapon(const AWeapon &copy) \
 
 AWeapon	&AWeapon::operator=(const AWeapon &copy)
 {
-	this->_name = copy._name;
-	this->_ap = copy._ap;
-	this->_dmg = copy._dmg;
+	if (this != &copy)
+	{
+		this->_name = copy._name;
+		this->_ap = copy._ap;
+		this->_dmg = copy._dmg;
+	}
 	return (*this);
 }
 

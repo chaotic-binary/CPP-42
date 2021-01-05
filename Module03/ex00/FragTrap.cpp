@@ -34,9 +34,11 @@ FragTrap::FragTrap(FragTrap const & src) : \
 }
 
 FragTrap & FragTrap::operator=(FragTrap const & rhs) {
-    *(const_cast<std::string*>(&_name)) = rhs._name;
-    _hitPoints = rhs._hitPoints;
-    _maxHitPoints = rhs._maxHitPoints;
+	if (this == &rhs)
+		return (*this);
+	*(const_cast<std::string*>(&_name)) = rhs._name;
+	_hitPoints = rhs._hitPoints;
+	_maxHitPoints = rhs._maxHitPoints;
 	_energyPoints = rhs._energyPoints;
 	_maxEnergyPoints = rhs._maxEnergyPoints;
 	_level = rhs._level;

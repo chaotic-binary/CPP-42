@@ -13,6 +13,8 @@ int main()
 	robert.polymorph(joe);
 
 	Rustic bill("Bill");
+	Rustic tom("Tom");
+	bill = tom;
 	std::cout << bill;
 	robert.polymorph(bill);
 	return 0;

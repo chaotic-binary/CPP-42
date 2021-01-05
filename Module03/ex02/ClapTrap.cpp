@@ -26,6 +26,8 @@ ClapTrap::ClapTrap(const ClapTrap & src) :
 }
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs) {
+	if (this == &rhs)
+		return (*this);
 	*(const_cast<std::string*>(&_name)) = rhs._name;
 	_hitPoints = rhs._hitPoints;
 	_maxHitPoints = rhs._maxHitPoints;

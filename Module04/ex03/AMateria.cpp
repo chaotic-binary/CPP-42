@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ttamesha <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/04 23:23:21 by valeria           #+#    #+#             */
-/*   Updated: 2021/01/05 00:19:55 by ttamesha         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "AMateria.hpp"
 
 AMateria::AMateria()
@@ -32,7 +20,10 @@ AMateria::AMateria(const AMateria &copy) \
 
 AMateria	&AMateria::operator=(const AMateria &copy)
 {
-	this->_xp = copy._xp;
+	if (this != &copy)
+	{
+		this->_xp = copy._xp;
+	}
 	return (*this);
 }
 

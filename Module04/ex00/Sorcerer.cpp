@@ -23,8 +23,11 @@ Sorcerer::Sorcerer(const Sorcerer &copy) : \
 
 Sorcerer	&Sorcerer::operator=(const Sorcerer &copy)
 {
-	this->_name = copy._name;
-	this->_title = copy._title;
+	if (this != &copy)
+	{
+		this->_name = copy._name;
+		this->_title = copy._title;
+	}
 	return (*this);
 }
 

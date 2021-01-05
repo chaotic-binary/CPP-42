@@ -19,9 +19,12 @@ Character::Character(const Character &copy) \
 
 Character	&Character::operator=(const Character &copy)
 {
-	this->_name = copy._name;
-	this->_ap = copy._ap;
-	this->_weapon = copy._weapon;
+	if (this != &copy)
+	{
+		this->_name = copy._name;
+		this->_ap = copy._ap;
+		this->_weapon = copy._weapon;
+	}
 	return (*this);
 }
 
