@@ -1,21 +1,19 @@
 NAME		=	test
 
-SRC			=	AMateria.cpp Ice.cpp Cure.cpp \
-				Character.cpp MateriaSource.cpp
+SRC			=	Bureaucrat.cpp
 O_DIR		=	./bin
 OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o)) \
 				$(addprefix $(O_DIR)/, $(MAIN:cpp=o))
-INCLUDE		=	$(SRC:cpp=hpp) \
-				ICharacter.hpp IMateriaSource.hpp
-MAIN		=	main.cpp
+INCLUDE		=	$(SRC:cpp=hpp)
+MAIN		=   main.cpp
 
-FLAGS		= -Wall -Wextra -Werror -g -std=c++98
+FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(O_DIR)/%.o:%.cpp $(INCLUDE) | $(O_DIR)
+$(O_DIR)/%.o:%.cpp | $(O_DIR) $(INCLUDE)
 	@clang++ $(FLAGS) -o $@ -c $<
 
 $(NAME): $(OBJ)
@@ -25,7 +23,8 @@ $(O_DIR):
 	@mkdir $(O_DIR)
 
 clean:
-	@rm -rf $(O_DIR)
+	@rm -f $(OBJ)
+	@rmdir $(O_DIR)
 	@echo "$(NAME) object files deleted"
 
 fclean: clean

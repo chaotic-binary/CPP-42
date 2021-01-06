@@ -4,15 +4,20 @@
 # include <iostream>
 # include "IMateriaSource.hpp"
 
-class MateriaSource
+class MateriaSource : public IMateriaSource
 {
 public:
 	MateriaSource();
 	MateriaSource(const MateriaSource &copy);
-	~MateriaSource();
+	virtual ~MateriaSource();
 	MateriaSource &operator=(const MateriaSource &copy);
 
+	virtual void		learnMateria(AMateria*);
+	virtual AMateria*	createMateria(std::string const & type);
+
 private:
+	AMateria		*_materia[4];
+	void			_deepCopy(const MateriaSource &copy);
 };
 
 #endif
