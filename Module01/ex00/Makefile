@@ -15,6 +15,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@clang++ $(FLAGS) -o $(NAME) $(OBJ)
+	@./$(NAME)
 
 clean:
 	@rm -f $(OBJ)

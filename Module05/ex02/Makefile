@@ -1,13 +1,17 @@
 NAME		=	test
 
-SRC			=	FragTrap.cpp
+SRC			=	Bureaucrat.cpp \
+				Form.cpp \
+				ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp
 O_DIR		=	./bin
 OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o)) \
 				$(addprefix $(O_DIR)/, $(MAIN:cpp=o))
 INCLUDE		=	$(SRC:cpp=hpp)
 MAIN		=   main.cpp
 
-FLAGS		= -Wall -Wextra -Werror -std=c++98
+FLAGS		= -std=c++98 #-Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
 
@@ -24,8 +28,8 @@ $(O_DIR):
 	@mkdir $(O_DIR)
 
 clean:
-	@rm -f $(OBJ)
-	@rmdir $(O_DIR)
+	@rm -rf $(O_DIR)
+	@rm ./_tree*
 	@echo "$(NAME) object files deleted"
 
 fclean: clean

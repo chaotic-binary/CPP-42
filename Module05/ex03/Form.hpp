@@ -14,6 +14,7 @@ public:
 	Form &operator=(const Form &copy);
 
 	void				beSigned(Bureaucrat const &bureaucrat);
+	virtual void		execute(Bureaucrat const & executor) const;
 
 	std::string const	&getName(void) const;
 	bool				isSigned(void) const;
@@ -29,6 +30,10 @@ public:
 		virtual const char* what() const throw();
 	};
 	class FormAlreadySignedException: public std::exception
+	{
+		virtual const char* what() const throw();
+	};
+	class FormNotSignedException: public std::exception
 	{
 		virtual const char* what() const throw();
 	};

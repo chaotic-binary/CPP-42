@@ -5,7 +5,7 @@ O_DIR		=	./bin
 OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o)) \
 				$(addprefix $(O_DIR)/, $(MAIN:cpp=o))
 INCLUDE		=	$(SRC:cpp=hpp)
-MAIN		=   main.cpp
+MAIN		=	main.cpp
 
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
@@ -18,6 +18,7 @@ $(O_DIR)/%.o:%.cpp | $(O_DIR) $(INCLUDE)
 
 $(NAME): $(OBJ)
 	@clang++ $(FLAGS) -o $(NAME) $(OBJ)
+	@./$(NAME)
 
 $(O_DIR):
 	@mkdir $(O_DIR)

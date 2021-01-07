@@ -5,12 +5,6 @@
 # include "ISquad.hpp"
 # include "ISpaceMarine.hpp"
 
-typedef struct			s_unitlist
-{
-	ISpaceMarine		*unit;
-	struct s_unitlist	*next;
-}						t_unitlist;
-
 class	Squad : public ISquad
 {
 public:
@@ -24,6 +18,13 @@ public:
 	virtual int				push(ISpaceMarine*);
 
 private:
+
+	typedef struct			s_unitlist
+	{
+		ISpaceMarine		*unit;
+		struct s_unitlist	*next;
+	}						t_unitlist;
+
 	int			_unitCount;
 	t_unitlist	*_units;
 	void		_deepCopy(const Squad &copy);

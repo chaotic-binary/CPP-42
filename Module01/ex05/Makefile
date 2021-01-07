@@ -15,6 +15,7 @@ all: $(NAME)
 
 $(O_DIR)/%.o:%.cpp | $(O_DIR)  $(INCLUDE)
 	@clang++ $(FLAGS) -o $@ -c $<
+	@./$(NAME)
 
 $(NAME): $(OBJ)
 	@clang++ $(FLAGS) -o $(NAME) $(OBJ)

@@ -50,6 +50,11 @@ const char* Form::FormAlreadySignedException::what() const throw()
 	return "Form is already signed";
 }
 
+const char* Form::FormNotSignedException::what() const throw()
+{
+	return "Form cannot be executed without a sign";
+}
+
 std::string const &Form::getName(void) const
 {
 	return (this->_name);
@@ -77,6 +82,14 @@ void	Form::beSigned(Bureaucrat const &bureaucrat)
 	else if (bureaucrat.getGrade() > this->_signGrade)
 		throw Form::GradeTooLowException();
 	this->_signed = true;
+}
+
+void	Form::execute(Bureaucrat const & executor) const
+{
+	if (!this->_signed)
+		throw Form::FormNotSignedException();
+	if (executor.getGrade() > this->_execGrade)
+		throw Form::GradeTooLowException();
 }
 
 void	Form::_check_grade(int signGrade, int execGrade)

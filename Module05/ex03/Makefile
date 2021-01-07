@@ -1,6 +1,11 @@
 NAME		=	test
 
-SRC			=	FragTrap.cpp
+SRC			=	Bureaucrat.cpp \
+				Form.cpp \
+				ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp\
+				Intern.cpp
 O_DIR		=	./bin
 OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o)) \
 				$(addprefix $(O_DIR)/, $(MAIN:cpp=o))
