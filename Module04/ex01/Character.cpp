@@ -59,7 +59,7 @@ void	Character::attack(Enemy *enemy)
 {
 	if (!this->_weapon || this->_ap < this->_weapon->getAPCost())
 		return ;
-	if (!enemy || enemy->getType().empty())
+	if (!enemy || enemy->getHP() ==  std::numeric_limits<int>::min())
 	{
 		std::cout << "Enough, your enemy is already dead.\n";
 		return ;

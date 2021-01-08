@@ -11,7 +11,7 @@ Enemy::Enemy(int hp, std::string const &type) \
 
 Enemy::~Enemy()
 {
-	this->_type.erase();
+	this->_hp = std::numeric_limits<int>::min();
 }
 
 Enemy::Enemy(const Enemy &copy) \

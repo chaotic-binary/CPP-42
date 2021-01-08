@@ -2,11 +2,21 @@
 
 /*Form::Form() {}*/
 
-Form::Form(std::string const &name, const int  signGrade, const int execGrade) \
+Form::Form(std::string const &name, const int signGrade, const int execGrade) \
 	:	_name(name), \
 		_signed(false), \
 		_signGrade(signGrade), \
 		_execGrade(execGrade)
+{
+	_check_grade(signGrade, execGrade);
+}
+
+Form::Form(std::string const &name, int const signGrade, int const execGrade, std::string const &target) \
+	:	_name(name), \
+		_signed(false), \
+		_signGrade(signGrade), \
+		_execGrade(execGrade), \
+		_target(target)
 {
 	_check_grade(signGrade, execGrade);
 }
@@ -17,8 +27,8 @@ Form::Form(const Form &copy)\
 	:	_name(copy._name), \
 		_signed(copy._signed), \
 		_signGrade(copy._signGrade), \
-		_execGrade(copy._execGrade)
-
+		_execGrade(copy._execGrade), \
+		_target(copy._target)
 {
 	_check_grade(copy._signGrade, copy._execGrade);
 }
@@ -28,10 +38,14 @@ Form	&Form::operator=(const Form &copy)
 	if (this == &copy)
 		return (*this);
 	_check_grade(copy._signGrade, copy._execGrade);
-	*(const_cast<std::string*>(&_name)) = copy._name;
-	*(const_cast<int*>(&_signGrade)) = copy._signGrade;
-	*(const_cast<int*>(&_execGrade)) = copy._execGrade;
+	if (this->_name != copy._name)
+		*(const_cast<std::string*>(&_name)) = copy._name;
+	if (this->_signGrade != copy._signGrade)
+		*(const_cast<int*>(&_signGrade)) = copy._signGrade;
+	if (this->_execGrade != copy._execGrade)
+		*(const_cast<int*>(&_execGrade)) = copy._execGrade;
 	this->_signed = copy._signed;
+	*(const_cast<std::string*>(&_target)) = copy._target;
 	return (*this);
 }
 

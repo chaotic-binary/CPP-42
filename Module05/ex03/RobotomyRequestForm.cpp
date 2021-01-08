@@ -3,21 +3,18 @@
 /*RobotomyRequestForm::RobotomyRequestForm() {}*/
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const & target) \
-	: Form("Robotomy Request", 72, 45), _target(target)
-{
-
-}
+	: Form("Robotomy Request", 72, 45, target)
+{}
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) \
-	: Form(copy), _target(copy._target)
+	: Form(copy)
 {}
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &copy)
 {
 	Form::operator=(copy);
-	*(const_cast<std::string*>(&_target)) = copy._target;
 	return (*this);
 }
 

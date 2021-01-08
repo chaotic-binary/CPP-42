@@ -22,7 +22,7 @@ $(O_DIR)/%.o:%.cpp | $(O_DIR) $(INCLUDE)
 
 $(NAME): $(OBJ)
 	@clang++ $(FLAGS) -o $(NAME) $(OBJ)
-	@./$(NAME)
+	./$(NAME)
 
 $(O_DIR):
 	@mkdir $(O_DIR)

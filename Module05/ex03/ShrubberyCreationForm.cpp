@@ -3,19 +3,18 @@
 /*ShrubberyCreationForm::ShrubberyCreationForm() {}*/
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target):
-	Form("Shrubbery Creation", 145, 137), _target(target)
+	Form("Shrubbery Creation", 145, 137, target)
 {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) \
-	: Form(copy), _target(copy._target)
+	: Form(copy)
 {}
 
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy)
 {
 	Form::operator=(copy);
-	*(const_cast<std::string*>(&_target)) = copy._target;
 	return (*this);
 }
 

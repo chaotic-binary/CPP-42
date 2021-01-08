@@ -10,7 +10,7 @@ class Form
 public:
 	Form(std::string const &name, int const signGrade, int const execGrade);
 	Form(const Form &copy);
-	~Form();
+	virtual ~Form();
 	Form &operator=(const Form &copy);
 
 	void				beSigned(Bureaucrat const &bureaucrat);
@@ -40,11 +40,15 @@ public:
 
 private:
 	Form();
-	std::string const	_name;
+	const std::string	_name;
 	bool				_signed;
 	const int			_signGrade;
 	const int			_execGrade;
-	void				_check_grade(int signGrade, int execGrade);
+	virtual void		_check_grade(int signGrade, int execGrade);
+
+protected:
+	Form(std::string const &name, int const signGrade, int const execGrade, std::string const &target);
+	const std::string	_target;
 };
 
 std::ostream &operator<<(std::ostream &os, Form const &form);
