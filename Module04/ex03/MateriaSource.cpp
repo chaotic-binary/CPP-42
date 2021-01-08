@@ -20,8 +20,12 @@ MateriaSource::MateriaSource(const MateriaSource &copy)
 
 MateriaSource	&MateriaSource::operator=(const MateriaSource &copy)
 {
-	if (this != &copy)
-		_deepCopy(copy);
+	if (this == &copy)
+		return (*this);
+	for (int i = 0; i < 4; i++)
+	if (this->_materia[i])
+		delete this->_materia[i];
+	_deepCopy(copy);
 	return (*this);
 }
 
@@ -50,9 +54,6 @@ AMateria* 		MateriaSource::createMateria(std::string const & type)
 
 void			MateriaSource::_deepCopy(const MateriaSource &copy)
 {
-	for (int i = 0; i < 4; i++)
-		if (this->_materia[i])
-			delete this->_materia[i];
 	for (int i = 0; i < 4; i++)
 	{
 		if (copy._materia[i])

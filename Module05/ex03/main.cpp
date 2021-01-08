@@ -23,19 +23,6 @@ int main()
 
 	std::cout << "\nDoesn't exist test\n";
 	intern.makeForm("Unexistent type", "x");
-
-	Form *f = new Form("form", 10, 10);
-	Form *c = intern.makeForm("robotomy request", "Zafod Beeblebrox");
-	*f = *c;
-	std::cout << *f;
-	bureaucrat.signForm(*f);
-	bureaucrat.executeForm(*f);
-
-	Form *a = new RobotomyRequestForm("people");
-	Form *b = intern.makeForm("presidential pardon", "Nobody");
-	*a = *b;
-	bureaucrat.signForm(*a);
-	bureaucrat.executeForm(*a);
-
+	
 	return (0);
 }

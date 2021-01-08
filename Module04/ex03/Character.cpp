@@ -25,8 +25,12 @@ Character::Character(const Character &copy)
 
 Character	&Character::operator=(const Character &copy)
 {
-	if (this != &copy)
-		_deepCopy(copy);
+	if (this == &copy)
+		return (*this);
+	for (int i = 0; i < 4; i++)
+	if (this->_materia[i])
+		delete this->_materia[i];
+	_deepCopy(copy);
 	return (*this);
 }
 
@@ -38,9 +42,6 @@ std::string const &	Character::getName(void) const
 void				Character::_deepCopy(const Character &copy)
 {
 	this->_name = std::string(copy.getName());
-	for (int i = 0; i < 4; i++)
-		if (this->_materia[i])
-			delete this->_materia[i];
 	for (int i = 0; i < 4; i++)
 	{
 		if (copy._materia[i])
