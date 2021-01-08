@@ -44,7 +44,7 @@ private:
 	bool				_signed;
 	const int			_signGrade;
 	const int			_execGrade;
-	virtual void		_check_grade(int signGrade, int execGrade);
+	virtual void		_check_grade(int signGrade, int execGrade) const;
 
 protected:
 	Form(std::string const &name, int const signGrade, int const execGrade, std::string const &target);

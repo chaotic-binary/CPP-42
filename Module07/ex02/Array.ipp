@@ -2,7 +2,7 @@
 
 template <typename T>
 Array<T>::Array() \
-	: _size(0), _arr(nullptr)
+	: _size(0), _arr(new T[0]())
 {}
 
 template <typename T>
@@ -55,18 +55,14 @@ const char*	Array<T>::OutOfBoundsException::what() const throw()
 template<typename T>
 void	Array<T>::_deepCopy(const Array<T> &copy)
 {
-	this->_arr = nullptr;
-	if((this->_size = copy._size))
-	{
-		this->_arr = new T[this->_size];
-		for (size_t i = 0; i < this->_size; ++i)
-			this->_arr[i] = copy._arr[i];
-	}
+	this->_size = copy._size;
+	this->_arr = new T[this->_size];
+	for (size_t i = 0; i < this->_size; ++i)
+		this->_arr[i] = copy._arr[i];
 }
 
 template<typename T>
 void	Array<T>::_delArr()
 {
-	if (this->_size)
-		delete[] this->_arr;
+	delete[] this->_arr;
 }

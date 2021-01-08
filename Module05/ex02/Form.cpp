@@ -106,7 +106,7 @@ void	Form::execute(Bureaucrat const & executor) const
 		throw Form::GradeTooLowException();
 }
 
-void	Form::_check_grade(int signGrade, int execGrade)
+void	Form::_check_grade(int signGrade, int execGrade) const
 {
 	if (signGrade < 1 || execGrade < 1)
 		throw Form::GradeTooHighException();

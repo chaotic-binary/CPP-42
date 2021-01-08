@@ -1,26 +1,6 @@
 #include "whatever.hpp"
 
 template <typename T>
-const T& min(const T &a, const T &b)
-{
-	return ((a > b) ? b : a);
-}
-
-template <typename T>
-const T& max(const T &a, const T &b)
-{
-	return ((a > b) ? a : b);
-}
-
-template <typename T>
-void swap(T &a, T &b)
-{
-	T tmp = a;
-	a = b;
-	b = tmp;
-}
-
-template <typename T>
 void test_template(T &a, T &b)
 {
 	std::cout << "a = " << a << ", b = " << b << std::endl;
@@ -28,7 +8,7 @@ void test_template(T &a, T &b)
 	std::cout << "After swap:\n";
 	std::cout << "a = " << a << ", b = " << b << std::endl;
 	std::cout << "min(a, b) = " << ::min(a, b) << std::endl;
-	std::cout << "max(a, b) = " << ::max(a, b) << std::endl;
+	std::cout << "max(a, b) = " << ::max(a, b) << std::endl << std::endl;
 }
 
 int main(void)

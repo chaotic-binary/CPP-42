@@ -63,7 +63,7 @@ const char*			Bureaucrat::GradeTooLowException::what() const throw()
 	return "Bureaucrat's grade is too low";
 }
 
-void				Bureaucrat::_check_grade(int grade)
+void				Bureaucrat::_check_grade(int grade) const
 {
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();

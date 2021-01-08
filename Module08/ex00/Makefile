@@ -2,7 +2,7 @@ NAME		= test
 
 SRC			= main.cpp
 OBJ			= $(SRC:cpp=o)
-INC			= Array.hpp
+INC			= easyfind.hpp
 
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 

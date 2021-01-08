@@ -2,19 +2,16 @@
 #include "iter.hpp"
 
 template <typename T>
-void iter(T *arr, size_t len, void (*func)(T const &)) {
-	for (size_t i = 0; i < len; ++i)
-		func(arr[i]);
-}
-
-static void	print_element(const int &a)
+static void	print_element(const T &a)
 {
-	std::cout << a << std::endl;
+	std::cout << a << " ";
 }
 
 int main(void)
 {
 	int arr[4] = {0, 1, 2, 3};
-
 	iter(arr, 4, print_element);
+	std::cout << std::endl;
+	std::string strArr[4] = {"zero", "one", "two", "three"};
+	iter(strArr, 4, print_element);
 }

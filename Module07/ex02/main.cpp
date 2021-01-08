@@ -3,9 +3,11 @@
 int			main(void)
 {
 	std::cout << "Int array test:\n";
-	Array<int> intArr1;
+	Array<int> intArr1(2);
+	std::cout << "size: " << intArr1.size() << std::endl;
 	Array<int> intArr2(5);
 	intArr1 = intArr2;
+	std::cout << "size: " << intArr1.size() << std::endl;
 	for (size_t i = 0; i < intArr1.size(); i++)
 	{
 		intArr1[i] = i;
@@ -21,14 +23,14 @@ int			main(void)
 	for (size_t i = 0; i < strArr.size(); i++)
 		std::cout << strArr[i] << " ";
 	std::cout << std::endl;
-	
-	std::cout << "\nsize() test: " << strArr.size() << std::endl;
+
+	std::cout << "size: " << strArr.size() << std::endl;
 
 	std::cout << "\nOut of the bound test:\n";
 	try {
 		std::cout << strArr[strArr.size()] << std::endl;
 	} catch(std::exception &e) {
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	return (0);
 }
