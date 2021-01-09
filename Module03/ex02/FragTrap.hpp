@@ -9,7 +9,7 @@ class	FragTrap : public ClapTrap
 		FragTrap(void);
 		FragTrap(const std::string & name);
 		FragTrap(FragTrap const & src);
-		~FragTrap(void);
+		virtual ~FragTrap(void);
 		FragTrap & operator=(FragTrap const & rhs);
 
 		virtual void	rangedAttack(std::string const &target) const;

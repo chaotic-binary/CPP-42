@@ -9,7 +9,7 @@ public:
 	NinjaTrap(void);
 	NinjaTrap(const std::string & name);
 	NinjaTrap(NinjaTrap const & src);
-	~NinjaTrap(void);
+	virtual ~NinjaTrap(void);
 	NinjaTrap & operator=(NinjaTrap const & rhs);
 
 	virtual void	meleeAttack(std::string const &target) const;

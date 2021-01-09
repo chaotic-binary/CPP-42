@@ -10,7 +10,7 @@ public:
 	Rustic();
 	Rustic(const std::string &name);
 	Rustic(const Rustic &copy);
-	~Rustic();
+	virtual ~Rustic();
 	Rustic &operator=(const Rustic &copy);
 
 	virtual void	getPolymorphed(void) const;

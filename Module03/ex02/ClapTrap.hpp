@@ -26,7 +26,7 @@ public:
 			unsigned int meleeAttackDamage,
 			unsigned int rangedAttackDamage,
 			unsigned int armor);
-	~ClapTrap();
+	virtual ~ClapTrap();
 	ClapTrap &operator=(const ClapTrap &copy);
 
 	virtual void	rangedAttack(std::string const &target) const;
@@ -39,7 +39,7 @@ public:
 
 protected:
 	ClapTrap(const unsigned char model);
-	
+
 	void	_printLog() const;
 
 	const std::string	_name;

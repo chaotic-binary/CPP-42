@@ -2,8 +2,11 @@
 #include "ScavTrap.hpp"
 
 int	main( void ) {
-	FragTrap CruelCat ("CruelCat");
-	ScavTrap BoringHuman ("Bob");
+	FragTrap Cat ("CruelCat");
+	FragTrap CruelCat ("Vasya");
+	CruelCat = Cat;
+	ScavTrap Human ("Bob");
+	ScavTrap BoringHuman(Human);
 	std::cout << std::endl;
 	CruelCat.rangedAttack("wall");
 	BoringHuman.meleeAttack("his boss");

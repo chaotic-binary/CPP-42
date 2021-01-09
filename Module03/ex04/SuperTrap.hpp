@@ -10,7 +10,7 @@ public:
 	SuperTrap(void);
 	SuperTrap(const std::string & name);
 	SuperTrap(SuperTrap const & src);
-	~SuperTrap(void);
+	virtual ~SuperTrap(void);
 	SuperTrap & operator=(SuperTrap const & rhs);
 
 	virtual void	rangedAttack(std::string const &target) const;

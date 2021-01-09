@@ -85,16 +85,13 @@ void	ClapTrap::_resourceMessage(char mode) const {
 }
 
 void	ClapTrap::_attackMessage(char mode, std::string const &target) const {
-	const std::string modelName[] = {"FragTrap", "ScavTrap",\
-					"Ninja", "SuperTrap", "ClapTrap"};
 	_printLog();
-	std::cout << " attacks " << target;
+		std::cout << " attacks " << target;
 	if (mode == 'R')
-		std::cout << " at range, causing " << _rangedAttackDamage << \
-				" points of damage using special " << ((_model == SP ) ? "FragTrap" : modelName[_model]) << " powers\n";
+		std::cout << " at range, causing " << _rangedAttackDamage;
 	if (mode == 'M')
-		std::cout << " causing " << _meleeAttackDamage << " points of melee damage using special " \
-			<< ((_model == SP) ? "Ninja" : modelName[_model]) << " fight technique\n";
+		std::cout << " causing " << _meleeAttackDamage;
+	std::cout << " points of melee damage\n";
 }
 
 void	ClapTrap::rangedAttack(std::string const &target) const {

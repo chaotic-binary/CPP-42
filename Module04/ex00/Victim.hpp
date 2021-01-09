@@ -8,7 +8,7 @@ public:
 	Victim();
 	Victim(const std::string &name);
 	Victim(const Victim &copy);
-	~Victim();
+	virtual ~Victim();
 	Victim &operator=(const Victim &copy);
 
 	virtual void	getPolymorphed(void) const;

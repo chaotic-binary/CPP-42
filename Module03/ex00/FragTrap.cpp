@@ -51,14 +51,14 @@ FragTrap & FragTrap::operator=(FragTrap const & rhs) {
 void	FragTrap::rangedAttack(std::string const & target) const {
 	_printLog();
 	std::cout << " attacks " << target << " at range, causing " \
-			<< _rangedAttackDamage << " points of damage using special FR4G-TP powers! \n";
+			<< _rangedAttackDamage << " points of damage\n";
 	std::cout << "Ha-HA!\n";
 }
 
 void	FragTrap::meleeAttack(std::string const & target) const {
 	_printLog();
 	std::cout << " attacks " << target << " causing " << _meleeAttackDamage << \
-				" points of melee damage using special FR4G-TP fight technique\n";
+				" points of melee damage\n";
 	std::cout << "BOOYAH!!\n";
 }
 

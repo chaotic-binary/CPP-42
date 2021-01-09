@@ -59,6 +59,5 @@ int		main(void)
 	me->attack(sm);
 	me->attack(sm);
 	me->attack(sm);
-	me->attack(sm);
 	return 0;
 }
