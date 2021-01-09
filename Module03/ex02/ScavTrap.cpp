@@ -21,17 +21,17 @@ ScavTrap::ScavTrap(ScavTrap const & src) : ClapTrap(src) {
 }
 
 ScavTrap & ScavTrap::operator=(ScavTrap const & rhs) {
-    ClapTrap::operator=(rhs);
+	ClapTrap::operator=(rhs);
 	return (*this);
 }
 
 void	ScavTrap::rangedAttack(std::string const &target) const{
-	_attackMessage('R', target);
+	ClapTrap::rangedAttack(target);
 	std::cout << "D'oh! D'ah! Oof! Ow! D'oh!\n\n";
 }
 
 void	ScavTrap::meleeAttack(std::string const &target) const {
-	_attackMessage('M', target);
+	ClapTrap::meleeAttack(target);
 	std::cout << "AHHHHHHHHHHHHHHHHHHHHHH!\n\n";
 }
 

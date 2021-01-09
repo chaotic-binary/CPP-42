@@ -26,12 +26,12 @@ FragTrap & FragTrap::operator=(FragTrap const & rhs) {
 }
 
 void	FragTrap::rangedAttack(std::string const &target) const{
-	_attackMessage('R', target);
+	ClapTrap::rangedAttack(target);
 	std::cout << "Ha-HA!\n\n";
 }
 
 void	FragTrap::meleeAttack(std::string const &target) const {
-	_attackMessage('M', target);
+	ClapTrap::meleeAttack(target);
 	std::cout << "BOOYAH!!\n\n";
 }
 

@@ -69,6 +69,7 @@
 		"set": "cpp",
 		"list": "cpp",
 		"map": "cpp",
-		"numeric": "cpp"
+		"numeric": "cpp",
+		"*.ipp": "cpp"
 	}
 }

@@ -26,12 +26,12 @@ ScavTrap & ScavTrap::operator=(ScavTrap const & rhs) {
 }
 
 void	ScavTrap::rangedAttack(std::string const &target) const{
-	_attackMessage('R', target);
+	ClapTrap::rangedAttack(target);
 	std::cout << "D'oh! D'ah! Oof! Ow! D'oh!\n\n";
 }
 
 void	ScavTrap::meleeAttack(std::string const &target) const {
-	_attackMessage('M', target);
+	ClapTrap::meleeAttack(target);
 	std::cout << "AHHHHHHHHHHHHHHHHHHHHHH!\n\n";
 }
 

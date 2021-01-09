@@ -36,19 +36,23 @@ int main(void)
 		std::deque<int>::iterator found;
 		for (int i = 0; i < 5; i++)
 			deque.push_back(i);
+		try {
+			found = easyfind(deque, 42);
+		} catch (const std::exception& e) {}
 		found = easyfind(deque, 3);
 		std::cout << "Found " << *found << " in deque\n\n";
 	}
 
-	{	std::set<int> set;
+	{
+		std::set<int> set;
 		std::set<int>::iterator found;
 		for (int i = 0; i < 5; i++)
 			set.insert(i);
-		found = easyfind(set, 2);
-		std::cout << "Found " << *found << " in set\n\n";
 		try {
 			found = easyfind(set, 42);
 		} catch (const std::exception& e) {}
+		found = easyfind(set, 2);
+		std::cout << "Found " << *found << " in set\n";
 	}
 	return (0);
 }

@@ -1,4 +1,17 @@
 #include "mutantstack.hpp"
+#include <iostream>
+
+template <typename I>
+static void print_stack(I it, I e)
+{
+	std::cout << "\nStack: \n";
+	while (it != e)
+	{
+		std::cout << *it << std::endl;
+		++it;
+	}
+	std::cout << std::endl;
+}
 
 int main()
 {
@@ -17,12 +30,27 @@ int main()
 	MutantStack<int>::iterator ite = mstack.end();
 	++it;
 	--it;
-	while (it != ite)
-	{
-	std::cout << *it << std::endl;
-	++it;
-	}
+	print_stack(it, ite);
 	std::stack<int> s(mstack);
+
+	*it = 1;
+	MutantStack<int> copy(mstack);
+	MutantStack<int>::const_iterator cit = copy.begin();
+	MutantStack<int>::const_iterator cite = copy.end();
+	print_stack(cit, cite);
+	//*cit = 20; //will not compile becuse it's const
+
+	MutantStack<int>::reverse_iterator rit = mstack.rbegin();
+	MutantStack<int>::reverse_iterator rite = mstack.rend();
+	print_stack(rit, rite);
+	*rit = 10;
+	print_stack(cit, cite);
+
+	copy = mstack;
+	MutantStack<int>::const_reverse_iterator crit = copy.rbegin();
+	MutantStack<int>::const_reverse_iterator crite = copy.rend();
+	print_stack(crit, crite);
+	//*crit = 20; //will not compile becuse it's const
 
 	return 0;
 }

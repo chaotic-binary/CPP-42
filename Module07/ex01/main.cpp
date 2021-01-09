@@ -9,9 +9,13 @@ static void	print_element(const T &a)
 
 int main(void)
 {
-	int arr[4] = {0, 1, 2, 3};
-	iter(arr, 4, print_element);
+	{
+		int arr[4] = {0, 1, 2, 3};
+		iter(arr, 4, print_element);
+	}
 	std::cout << std::endl;
-	std::string strArr[4] = {"zero", "one", "two", "three"};
-	iter(strArr, 4, print_element);
+	{
+		std::string arr[4] = {"zero", "one", "two", "three"};
+		iter(arr, 4, print_element);
+	}
 }

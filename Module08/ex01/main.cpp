@@ -1,4 +1,5 @@
 #include "span.hpp"
+#include <iostream>
 
 static void print_span(Span sp)
 {

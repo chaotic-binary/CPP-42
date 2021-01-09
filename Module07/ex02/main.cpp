@@ -23,7 +23,6 @@ int			main(void)
 	for (size_t i = 0; i < strArr.size(); i++)
 		std::cout << strArr[i] << " ";
 	std::cout << std::endl;
-
 	std::cout << "size: " << strArr.size() << std::endl;
 
 	std::cout << "\nOut of the bound test:\n";

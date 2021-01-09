@@ -13,21 +13,27 @@ void test_template(T &a, T &b)
 
 int main(void)
 {
-	int i1 = 1, i2 = 2;
-	test_template(i1, i2);
-
-	std::string s1 = "str1";
-	std::string s2 = "str2";
-	test_template(s1, s2);
-
-	std::string s3 = "str3";
-	std::string s4 = "str3";
-	test_template(s3, s4);
-
-	double d1 = 0.1, d2 = 0.2;
-	test_template(d1, d2);
+	{
+		int a = 1, b = 2;
+		test_template(a, b);
+	}
+	{
+		std::string s1 = "str1";
+		std::string s2 = "str2";
+		test_template(s1, s2);
+	}
+	{
+		std::string s1 = "str3";
+		std::string s2 = "str3";
+		test_template(s1, s2);
+	}
+	{
+		double a = 0.1, b = 0.2;
+		test_template(a, b);
+	}
+	{
+		char a = 'a', b = 'b';
+		test_template(a, b);
+	}
 	return (0);
-
-	char a = 'a', b = 'b';
-	test_template(a, b);
 }

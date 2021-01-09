@@ -51,8 +51,7 @@ size_t	Span::shortestSpan(void) const
 size_t	Span::longestSpan(void) const
 {
 	_check_N();
-	int max = *(--(this->_numbers.end()));
-	return (max - *(this->_numbers.begin()));
+	return (*(this->_numbers.rbegin()) - *(this->_numbers.begin()));
 }
 
 void	Span::_check_N() const

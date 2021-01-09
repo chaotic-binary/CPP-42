@@ -38,11 +38,9 @@ public:
 	unsigned char getModel() const;
 
 protected:
-	void	_printLog() const;
-	void	_attackMessage(char mode, std::string const &target) const;
-	void	_resourceMessage(char mode) const;
-
 	ClapTrap(const unsigned char model);
+
+	void	_printLog() const;
 
 	const std::string	_name;
 	unsigned int		_hitPoints;
@@ -56,6 +54,10 @@ protected:
 
 	const unsigned char	_model;
 	static const std::string modelId[];
+
+private:
+	void	_attackMessage(char mode, std::string const &target) const;
+	void	_resourceMessage(char mode) const;
 };
 
 #endif

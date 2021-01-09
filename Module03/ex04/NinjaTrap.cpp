@@ -26,7 +26,7 @@ NinjaTrap & NinjaTrap::operator=(NinjaTrap const & rhs) {
 }
 
 void	NinjaTrap::meleeAttack(std::string const &target) const {
-	_attackMessage('M', target);
+	ClapTrap::meleeAttack(target);
 	std::cout << "Ninjaaaaaaa!!\n\n";
 }
 
