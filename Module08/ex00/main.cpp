@@ -8,7 +8,7 @@
 int main(void)
 {
 	{
-		std::vector<int> v(5, 5);
+		std::vector<int> v(5);
 		std::vector<int>::iterator found;
 		for (int i = 0; i < 5; i++)
 			v[i] = i;
@@ -16,7 +16,7 @@ int main(void)
 			found = easyfind(v, 42);
 		} catch (const std::exception& e) {}
 		found = easyfind(v, 0);
-		std::cout << "Found " << *found << " in vector\n";
+		std::cout << "Found " << *found << " in vector\n\n";
 	}
 
 	{
@@ -28,7 +28,7 @@ int main(void)
 			found = easyfind(lst, 42);
 		} catch (const std::exception& e) {}
 		found = easyfind(lst, 3);
-		std::cout << "Found " << *found << " in list\n";
+		std::cout << "Found " << *found << " in list\n\n";
 	}
 
 	{
@@ -37,7 +37,7 @@ int main(void)
 		for (int i = 0; i < 5; i++)
 			deque.push_back(i);
 		found = easyfind(deque, 3);
-		std::cout << "Found " << *found << " in deque\n";
+		std::cout << "Found " << *found << " in deque\n\n";
 	}
 
 	{	std::set<int> set;
@@ -45,7 +45,7 @@ int main(void)
 		for (int i = 0; i < 5; i++)
 			set.insert(i);
 		found = easyfind(set, 2);
-		std::cout << "Found " << *found << " in set\n";
+		std::cout << "Found " << *found << " in set\n\n";
 		try {
 			found = easyfind(set, 42);
 		} catch (const std::exception& e) {}

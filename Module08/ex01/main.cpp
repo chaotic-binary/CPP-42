@@ -1,4 +1,10 @@
-#include "Span.hpp"
+#include "span.hpp"
+
+static void print_span(Span sp)
+{
+	std::cout << "Shortest: " << sp.shortestSpan() << std::endl;
+	std::cout << "Longest: " << sp.longestSpan() << std::endl << std::endl;
+}
 
 int		main(void)
 {
@@ -8,10 +14,9 @@ int		main(void)
 	sp.addNumber(17);
 	sp.addNumber(9);
 	sp.addNumber(11);
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
+	print_span(sp);
 
-	std:: cout << "\nNo room exception test:\n";
+	std:: cout << "No room exception test:\n";
 	try {
 		sp.addNumber(17);
 	} catch (std::exception &e) {
@@ -33,10 +38,15 @@ int		main(void)
 	}
 	std::cerr << std::endl;
 	sp1.addNumber(-10);
-	std::cout << sp1.shortestSpan() << std::endl;
-	std::cout << sp1.longestSpan() << std::endl;
-	sp1.addNumber(25);
-	std::cout << sp1.shortestSpan() << std::endl;
-	std::cout << sp1.longestSpan() << std::endl;
+	print_span(sp1);
+	sp1.addNumber(-25);
+	print_span(sp1);
+
+	Span sp2 = Span(4);
+	sp2.addNumber(-30);
+	sp2.addNumber(-50);
+	sp2.addNumber(-51);
+	sp2.addNumber(30);
+	print_span(sp2);
 	return (0);
 }

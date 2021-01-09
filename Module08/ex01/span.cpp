@@ -35,15 +35,24 @@ void	Span::addNumber(int n)
 size_t	Span::shortestSpan(void) const
 {
 	_check_N();
-	int next = *(++(this->_numbers.begin()));
-	return (std::abs(next - *(this->_numbers.begin())));
+	int shortestSpan = std::numeric_limits<int>::max();
+	int tmp;
+	std::multiset<int>::iterator it = ++begin(this->_numbers);
+	while (it != end(this->_numbers))
+	{
+		tmp = *it - *(prev(it));
+		if (tmp < shortestSpan)
+			shortestSpan = tmp;
+		++it;
+	}
+	return (shortestSpan);
 }
 
 size_t	Span::longestSpan(void) const
 {
 	_check_N();
 	int max = *(--(this->_numbers.end()));
-	return (std::abs(max - *(this->_numbers.begin())));
+	return (max - *(this->_numbers.begin()));
 }
 
 void	Span::_check_N() const
