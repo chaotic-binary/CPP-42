@@ -3,6 +3,8 @@
 #include "NinjaTrap.hpp"
 
 int	main( void ) {
+	srand(time(0));
+	
 	NinjaTrap FireNinja("FireNinja");
 	NinjaTrap SnowNinja("SnowNinja");
 	ScavTrap Ironman("Ironman");

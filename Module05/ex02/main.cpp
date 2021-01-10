@@ -10,6 +10,7 @@ static void testForm(Bureaucrat* bureaucrat, Form* form)
 
 int		main(void)
 {
+	srand(time(0));
 	ShrubberyCreationForm* shrub = new ShrubberyCreationForm("_tree0");
 	ShrubberyCreationForm* shrub1 = new ShrubberyCreationForm("_tree1");
 	RobotomyRequestForm* robotomy = new RobotomyRequestForm("World");

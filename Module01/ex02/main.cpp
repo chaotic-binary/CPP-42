@@ -3,7 +3,8 @@
 int	main(void)
 {
 	ZombieEvent event = ZombieEvent();
-
+	srand(time(0));
+	
 	std::cout << "Zombies on the Heap:\n";
 	Zombie* zombie1 = event.newZombie("First");
 	zombie1->announce();
@@ -11,7 +12,7 @@ int	main(void)
 	event.setZombieType("Lazy");
 	Zombie* zombie2 = event.newZombie("Uuuuu");
 	zombie2->announce();
-	
+
 	event.setZombieType("Strange");
 	Zombie* zombie3 = event.newZombie("Shshshsh");
 	zombie3->announce();

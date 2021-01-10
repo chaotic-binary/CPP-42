@@ -1,6 +1,8 @@
 #include "FragTrap.hpp"
 
 int	main( void ) {
+	srand(time(0));
+	
 	FragTrap CruelCat ("CruelCat");
 	FragTrap BoringHuman ("Bob");
 	CruelCat.rangedAttack("wall");

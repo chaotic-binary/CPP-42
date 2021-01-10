@@ -2,6 +2,8 @@
 #include "ScavTrap.hpp"
 
 int	main( void ) {
+	srand(time(0));
+	
 	FragTrap Cat ("CruelCat");
 	FragTrap CruelCat ("Vasya");
 	CruelCat = Cat;

@@ -5,6 +5,8 @@
 
 int main()
 {
+	srand(time(0));
+	
 	Intern intern;
 
 	Form *form0 = intern.makeForm("presidential pardon", "Zafod Beeblebrox");
@@ -23,6 +25,6 @@ int main()
 
 	std::cout << "\nDoesn't exist test\n";
 	intern.makeForm("Unexistent type", "x");
-	
+
 	return (0);
 }
