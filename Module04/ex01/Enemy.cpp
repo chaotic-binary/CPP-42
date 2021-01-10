@@ -1,12 +1,15 @@
 #include "Enemy.hpp"
 
-Enemy::Enemy()
-{
-}
+Enemy::Enemy() {}
 
 Enemy::Enemy(int hp, std::string const &type) \
 	: _hp(hp), _type(type)
 {
+	if (hp <= 0)
+	{
+		std::cout << "HP <= 0 doesn't make sense. Let's make it 1\n";
+		this->_hp = 1;
+	}
 }
 
 Enemy::~Enemy()
