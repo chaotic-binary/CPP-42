@@ -35,6 +35,8 @@ private:
 	bool isChar(std::string const &) const;
 	bool isInt(std::string const &) const;
 	bool isFloat(std::string const &) const;
+	bool isSpecialDouble(std::string const &) const;
+	bool isSpecialFloat(std::string const &) const;
 	bool isDisplayable(char c) const;
 
 	void fromChar(char c);

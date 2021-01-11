@@ -9,15 +9,13 @@ Converter::Converter(std::string const & str) \
 		fromChar(str[0]);
 	else if (isInt(str) || isFloat(str))
 		fromNumStr(str);
-	else
-	{
+	else if (isSpecialDouble(str))
 		fromNotNumStr(str);
-		if (this->d == 0 && *str.rbegin() == 'f')
-		{
-			std::string str_copy = str;
-			str_copy.erase(str.size() - 1);
-			fromNotNumStr(str_copy);
-		}
+	else if (isSpecialFloat(str))
+	{
+		std::string str_copy = str;
+		str_copy.erase(str.size() - 1);
+		fromNotNumStr(str_copy);
 	}
 }
 
@@ -49,15 +47,17 @@ bool Converter::isInt(std::string const &str) const
 {
 	int i;
 
-	i = -1;
-	if (str[0] == '-' || str[0] == '+')
+	i = 0;
+	//while (isspace(str[i++]))
+	//	++i;
+	if (str[i] == '-' || str[i] == '+')
 		++i;
-	while (str[++i])
+	while (str[i++])
 	{
 		if (!isdigit(str[i]))
-			return (0);
+			return (false);
 	}
-	return (1);
+	return (true);
 }
 
 bool Converter::isFloat(std::string const &str) const
@@ -67,19 +67,35 @@ bool Converter::isFloat(std::string const &str) const
 
 	i = 0;
 	dot = 0;
+	//while (isspace(str[i++]))
+	//	++i;
 	if (str[i] == '-' || str[i] == '+')
 		++i;
-	while (str[i] && isdigit(str[i]))
-		++i;
-	if (str[i] == '.')
+	while (str[i])
 	{
-		++i;
-		while (str[i] && isdigit(str[i]))
+		if (isdigit(str[i]))
 			++i;
+		else if (str[i] == '.' && !dot)
+		{
+			++i;
+			dot = 1;
+		}
+		else if (str[i] == 'f' && !str[i + 1])
+			return true;
+		else
+			return false;
 	}
-	if (!str[i] || (str[i] == 'f' && !str[i + 1]))
-		return (1);
-	return (0);
+	return (true);
+}
+
+bool Converter::isSpecialDouble(std::string const &str) const
+{
+	return (str == "nan" || str == "inf" || str == "-inf" || str == "+inf");
+}
+
+bool Converter::isSpecialFloat(std::string const &str) const
+{
+	return (str == "nanf" || str == "inff" ||  str == "-inff" ||  str == "+inff");
 }
 
 bool Converter::isDisplayable(char c) const
@@ -129,29 +145,29 @@ bool Converter::checkConversionStatus(int convertionStatus) const
 	if (!(this->_success & convertionStatus))
 	{
 		std::cout << "impossible\n";
-		return true;
+		return false;
 	}
 	else if (convertionStatus == ConvertibleToChar && !isDisplayable(this->c))
 	{
 		std::cout << "Non displayable\n";
-		return true;
+		return false;
 	}
-	return false;
+	return true;
 }
 
 std::ostream &operator<<(std::ostream &os, Converter const & converter)
 {
 	os << "char: ";
-	if (!converter.checkConversionStatus(ConvertibleToChar))
+	if (converter.checkConversionStatus(ConvertibleToChar))
 		os << "\"" << converter.c << "\"" << std::endl;
 	os << "int: ";
-	if (!converter.checkConversionStatus(ConvertibleToInt))
+	if (converter.checkConversionStatus(ConvertibleToInt))
 		os << converter.i << std::endl;
 	os << "float: ";
-	if (!converter.checkConversionStatus(ConvertibleToFloat))
+	if (converter.checkConversionStatus(ConvertibleToFloat))
 		os << std::setprecision(1) << std::fixed << converter.f << "f" << std::endl;
 	os << "double: ";
-	if (!converter.checkConversionStatus(ConvertibleToDouble))
+	if (converter.checkConversionStatus(ConvertibleToDouble))
 		os << std::setprecision(1) << std::fixed << converter.d << std::endl;
 	return (os);
 }
