@@ -10,7 +10,7 @@ int main()
 	raw = serialize();
 	data = deserialize(raw);
 	std::cout << "\nDeserialized data:" << std::endl;
-	std::cout << "s1 : " << data->s1 << "\nn  : " << data->n << "\ns2 : " << data->s2 << std::endl;
+	print_data(data);
 	delete data;
 	return (0);
 }

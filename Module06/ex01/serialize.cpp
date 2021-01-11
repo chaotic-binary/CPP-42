@@ -1,5 +1,12 @@
 #include "serialize.hpp"
 
+void	print_data(const Data *data)
+{
+	std::cout << "s1 : " << data->s1 << \
+	"\nn  : " << data->n << \
+	"\ns2 : " << data->s2 << std::endl;
+}
+
 void	*serialize(void)
 {
 	const char		symbols[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -13,8 +20,7 @@ void	*serialize(void)
 	data->n = std::rand();
 
 	std::cout << "\nSerialized data:" << std::endl;
-	std::cout << "s1 : " << data->s1 << "\nn  : " << data->n << "\ns2 : " << data->s2 << std::endl;
-
+	print_data(data);
 	return (reinterpret_cast<void *>(data));
 }
 

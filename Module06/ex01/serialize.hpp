@@ -13,4 +13,6 @@ struct			Data
 void	*serialize(void);
 Data	*deserialize(void *void_data);
 
+void	print_data(const Data *data);
+
 #endif

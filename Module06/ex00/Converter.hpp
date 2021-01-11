@@ -44,7 +44,7 @@ private:
 	float	_f;
 	int		_i;
 	char	_c;
-	int _success;
+	int		_success;
 };
 
 #endif
