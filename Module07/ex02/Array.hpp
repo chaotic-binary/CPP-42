@@ -8,7 +8,7 @@ class Array
 {
 public:
 	Array();
-	Array(size_t n);
+	Array(uint n);
 	Array(const Array &copy);
 	~Array();
 	Array &operator=(const Array &copy);
@@ -18,12 +18,12 @@ public:
 		virtual const char* what() const throw();
 	};
 
-	size_t size() const;
-	T &operator[](size_t i) const;
+	uint size() const;
+	T &operator[](uint i) const;
 
 private:
 	T*		_arr;
-	size_t	_size;
+	uint	_size;
 	void	_deepCopy(const Array &copy);
 	void	_delArr();
 };

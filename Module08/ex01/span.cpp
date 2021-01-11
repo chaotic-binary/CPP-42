@@ -2,7 +2,7 @@
 
 Span::Span() {}
 
-Span::Span(size_t size) \
+Span::Span(uint size) \
 	: _maxN(size)
 {}
 
@@ -32,7 +32,7 @@ void	Span::addNumber(int n)
 	this->_numbers.insert(n);
 }
 
-size_t	Span::shortestSpan(void) const
+uint	Span::shortestSpan(void) const
 {
 	_check_N();
 	int shortestSpan = std::numeric_limits<int>::max();
@@ -48,7 +48,7 @@ size_t	Span::shortestSpan(void) const
 	return (shortestSpan);
 }
 
-size_t	Span::longestSpan(void) const
+uint	Span::longestSpan(void) const
 {
 	_check_N();
 	return (*(this->_numbers.rbegin()) - *(this->_numbers.begin()));

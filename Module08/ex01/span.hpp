@@ -8,14 +8,14 @@ class Span
 {
 public:
 	Span();
-	Span(size_t size);
+	Span(uint size);
 	Span(const Span &copy);
 	~Span();
 	Span &operator=(const Span &copy);
 
 	void	addNumber(int);
-	size_t	shortestSpan(void) const;
-	size_t	longestSpan(void) const;
+	uint	shortestSpan(void) const;
+	uint	longestSpan(void) const;
 
 	class NoRoomException: public std::exception
 	{
@@ -27,7 +27,7 @@ public:
 	};
 
 private:
-	size_t				_maxN;
+	uint				_maxN;
 	std::multiset<int>	_numbers;
 	void				_check_N() const;
 };

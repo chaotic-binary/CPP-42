@@ -8,7 +8,7 @@ int			main(void)
 	Array<int> intArr2(5);
 	intArr1 = intArr2;
 	std::cout << "size: " << intArr1.size() << std::endl;
-	for (size_t i = 0; i < intArr1.size(); i++)
+	for (uint i = 0; i < intArr1.size(); i++)
 	{
 		intArr1[i] = i;
 		std::cout << intArr1[i] << " ";
@@ -20,7 +20,7 @@ int			main(void)
 	strArr2[0] = "one";
 	strArr2[1] = "two";
 	Array<std::string> strArr(strArr2);
-	for (size_t i = 0; i < strArr.size(); i++)
+	for (uint i = 0; i < strArr.size(); i++)
 		std::cout << strArr[i] << " ";
 	std::cout << std::endl;
 	std::cout << "size: " << strArr.size() << std::endl;
