@@ -38,12 +38,12 @@ Form	&Form::operator=(const Form &copy)
 	if (this == &copy)
 		return (*this);
 	_check_grade(copy._signGrade, copy._execGrade);
-	if (this->_name != copy._name)
+	if (this->_target.empty())
+	{
 		*(const_cast<std::string*>(&_name)) = copy._name;
-	if (this->_signGrade != copy._signGrade)
 		*(const_cast<int*>(&_signGrade)) = copy._signGrade;
-	if (this->_execGrade != copy._execGrade)
 		*(const_cast<int*>(&_execGrade)) = copy._execGrade;
+	}
 	this->_signed = copy._signed;
 	*(const_cast<std::string*>(&_target)) = copy._target;
 	return (*this);

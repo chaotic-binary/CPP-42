@@ -15,6 +15,6 @@ class C : public Base {};
 
 Base *generate(void);
 void identify_from_pointer(Base *p);
-void identify_from_reference(Base &b);
+void identify_from_reference(Base &p);
 
 #endif
