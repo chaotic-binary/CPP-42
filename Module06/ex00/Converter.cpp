@@ -100,7 +100,7 @@ bool Converter::isSpecialFloat(std::string const &str) const
 
 bool Converter::isDisplayable(char c) const
 {
-	return (c >= 32 && c <= 126);
+	return (c > 32 && c < 127);
 }
 
 void Converter::fromChar(char c)
@@ -159,7 +159,7 @@ std::ostream &operator<<(std::ostream &os, Converter const & converter)
 {
 	os << "char: ";
 	if (converter.checkConversionStatus(ConvertibleToChar))
-		os << "\"" << converter.c << "\"" << std::endl;
+		os << converter.c << std::endl;
 	os << "int: ";
 	if (converter.checkConversionStatus(ConvertibleToInt))
 		os << converter.i << std::endl;
