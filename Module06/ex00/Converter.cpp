@@ -3,7 +3,7 @@
 Converter::Converter() {}
 
 Converter::Converter(std::string const & str) \
-	: _success(0), d(0), f(0), i(0), c(0)
+	: _success(0), _d(0), _f(0), _i(0), _c(0)
 {
 	if (isChar(str))
 		fromChar(str[0]);
@@ -22,7 +22,7 @@ Converter::Converter(std::string const & str) \
 Converter::~Converter() {}
 
 Converter::Converter(const Converter &copy)
-	: d(copy.d), f(copy.f), i(copy.i), c(copy.c), \
+	: _d(copy._d), _f(copy._f), _i(copy._i), _c(copy._c), \
 	_success(copy._success)
 {}
 
@@ -30,10 +30,10 @@ Converter	&Converter::operator=(const Converter &copy)
 {
 	if (this == &copy)
 		return (*this);
-	this->d = copy.d;
-	this->f = copy.f;
-	this->i = copy.i;
-	this->c = copy.c;
+	this->_d = copy._d;
+	this->_f = copy._f;
+	this->_i = copy._i;
+	this->_c = copy._c;
 	this->_success = copy._success;
 	return (*this);
 }
@@ -105,20 +105,20 @@ bool Converter::isDisplayable(char c) const
 
 void Converter::fromChar(char c)
 {
-	this->c = c;
-	this->i = static_cast<int>(c);
-	this->d = static_cast<double>(c);
-	this->f = static_cast<float>(c);
+	this->_c = c;
+	this->_i = static_cast<int>(c);
+	this->_d = static_cast<double>(c);
+	this->_f = static_cast<float>(c);
 	this->_success = this->_success | ConvertibleToChar | ConvertibleToInt | ConvertibleToFloat | ConvertibleToDouble;
 }
 
 void Converter::fromNotNumStr(std::string const & str)
 {
 	std::istringstream ss(str);
-	ss >> this->d;
-	if (this->d != 0)
+	ss >> this->_d;
+	if (this->_d != 0)
 	{
-		this->f = static_cast<float>(d);
+		this->_f = static_cast<float>(_d);
 		this->_success = this->_success | ConvertibleToDouble | ConvertibleToFloat;
 	}
 }
@@ -126,15 +126,15 @@ void Converter::fromNotNumStr(std::string const & str)
 void Converter::fromNumStr(std::string const & str)
 {
 	try {
-		this->d = std::stod(str);
+		this->_d = std::stod(str);
 		this->_success |= ConvertibleToDouble;
-		this->f = std::stof(str);
+		this->_f = std::stof(str);
 		this->_success |= ConvertibleToFloat;
-		this->i = std::stoi(str);
+		this->_i = std::stoi(str);
 		this->_success |= ConvertibleToInt;
-		if (i >= std::numeric_limits<char>::min() && i < std::numeric_limits<char>::max())
+		if (_i >= std::numeric_limits<char>::min() && _i < std::numeric_limits<char>::max())
 		{
-			this->c = static_cast<char>(i);
+			this->_c = static_cast<char>(_i);
 			this->_success |= ConvertibleToChar;
 		}
 	} catch (const std::exception &e) {}
@@ -147,7 +147,7 @@ bool Converter::checkConversionStatus(int convertionStatus) const
 		std::cout << "impossible\n";
 		return false;
 	}
-	else if (convertionStatus == ConvertibleToChar && !isDisplayable(this->c))
+	else if (convertionStatus == ConvertibleToChar && !isDisplayable(this->_c))
 	{
 		std::cout << "Non displayable\n";
 		return false;
@@ -155,19 +155,18 @@ bool Converter::checkConversionStatus(int convertionStatus) const
 	return true;
 }
 
-std::ostream &operator<<(std::ostream &os, Converter const & converter)
+void Converter::printResult() const
 {
-	os << "char: ";
-	if (converter.checkConversionStatus(ConvertibleToChar))
-		os << converter.c << std::endl;
-	os << "int: ";
-	if (converter.checkConversionStatus(ConvertibleToInt))
-		os << converter.i << std::endl;
-	os << "float: ";
-	if (converter.checkConversionStatus(ConvertibleToFloat))
-		os << std::setprecision(1) << std::fixed << converter.f << "f" << std::endl;
-	os << "double: ";
-	if (converter.checkConversionStatus(ConvertibleToDouble))
-		os << std::setprecision(1) << std::fixed << converter.d << std::endl;
-	return (os);
+	std::cout << "char: ";
+	if (checkConversionStatus(ConvertibleToChar))
+		std::cout << _c << std::endl;
+	std::cout << "int: ";
+	if (checkConversionStatus(ConvertibleToInt))
+		std::cout << _i << std::endl;
+	std::cout << "float: ";
+	if (checkConversionStatus(ConvertibleToFloat))
+		std::cout << std::setprecision(1) << std::fixed << _f << "f" << std::endl;
+	std::cout << "double: ";
+	if (checkConversionStatus(ConvertibleToDouble))
+		std::cout << std::setprecision(1) << std::fixed << _d << std::endl;
 }

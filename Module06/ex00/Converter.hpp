@@ -22,12 +22,7 @@ public:
 	~Converter();
 	Converter &operator=(const Converter &copy);
 
-	double	d;
-	float	f;
-	int		i;
-	char	c;
-
-	bool checkConversionStatus(int convertionStatus) const;
+	void printResult() const;
 
 private:
 	Converter();
@@ -43,9 +38,13 @@ private:
 	void fromNumStr(std::string const &);
 	void fromNotNumStr(std::string const &);
 
+	bool checkConversionStatus(int convertionStatus) const;
+
+	double	_d;
+	float	_f;
+	int		_i;
+	char	_c;
 	int _success;
 };
-
-std::ostream &operator<<(std::ostream &os, Converter const & converter);
 
 #endif

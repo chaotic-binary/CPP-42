@@ -17,6 +17,6 @@ int		main(int ac, char **av)
 	trim_str(str);
 	transform(str.begin(), str.end(), str.begin(), ::tolower);
 	Converter converter(str);
-	std::cout << converter;
+	converter.printResult();
 	return (0);
 }
