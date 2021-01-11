@@ -47,4 +47,6 @@ void	Enemy::takeDamage(int amount)
 	if (amount <= 0)
 		return ;
 	_hp -= amount;
+	if (_hp < 0)
+		_hp = 0;
 }
