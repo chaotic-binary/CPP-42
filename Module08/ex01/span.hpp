@@ -3,6 +3,7 @@
 
 # include <algorithm>
 # include <set>
+# include <array>
 
 typedef	unsigned int	uint;
 
@@ -16,6 +17,7 @@ public:
 	Span &operator=(const Span &copy);
 
 	void	addNumber(int);
+	void	addNumber(int arr[], int size);
 	uint	shortestSpan(void) const;
 	uint	longestSpan(void) const;
 

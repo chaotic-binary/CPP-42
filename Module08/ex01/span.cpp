@@ -27,9 +27,17 @@ Span	&Span::operator=(const Span &copy)
 
 void	Span::addNumber(int n)
 {
-	if (this->_numbers.size() == this->_maxN)
+	if (_numbers.size() == _maxN)
 		throw NoRoomException();
-	this->_numbers.insert(n);
+	_numbers.insert(n);
+}
+
+void	Span::addNumber(int arr[], int size)
+{
+	if (_numbers.size() + size > _maxN)
+		throw NoRoomException();
+	for (int i = 0; i < size; i++)
+		_numbers.insert(arr[i]);
 }
 
 uint	Span::shortestSpan(void) const
@@ -37,8 +45,8 @@ uint	Span::shortestSpan(void) const
 	_check_N();
 	int shortestSpan = std::numeric_limits<int>::max();
 	int tmp;
-	std::multiset<int>::iterator it = ++begin(this->_numbers);
-	while (it != end(this->_numbers))
+	std::multiset<int>::iterator it = ++begin(_numbers);
+	while (it != end(_numbers))
 	{
 		tmp = *it - *(prev(it));
 		if (tmp < shortestSpan)
@@ -51,12 +59,12 @@ uint	Span::shortestSpan(void) const
 uint	Span::longestSpan(void) const
 {
 	_check_N();
-	return (*(this->_numbers.rbegin()) - *(this->_numbers.begin()));
+	return (*(_numbers.rbegin()) - *(_numbers.begin()));
 }
 
 void	Span::_check_N() const
 {
-	if (this->_numbers.size() < 2)
+	if (_numbers.size() < 2)
 		throw NoSpanException();
 }
 

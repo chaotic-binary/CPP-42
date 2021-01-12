@@ -10,16 +10,20 @@ static void print_span(Span sp)
 int		main(void)
 {
 	Span sp = Span(5);
-	sp.addNumber(5);
-	sp.addNumber(3);
-	sp.addNumber(17);
-	sp.addNumber(9);
-	sp.addNumber(11);
-	print_span(sp);
+	int arr[5] = {5, 3, 17, 9, 11};
+	sp.addNumber(arr, 5);
+	Span sp_c = Span(sp);
+	print_span(sp_c);
 
 	std:: cout << "No room exception test:\n";
 	try {
 		sp.addNumber(17);
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	try {
+		Span n = Span(1);
+		n.addNumber(arr, 2);
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
@@ -37,17 +41,17 @@ int		main(void)
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
-	std::cerr << std::endl;
+	std::cout << std::endl;
 	sp1.addNumber(-10);
 	print_span(sp1);
-	sp1.addNumber(-25);
-	print_span(sp1);
+	Span sp1_c = Span(0);
+	sp1_c = sp1;
+	sp1_c.addNumber(-25);
+	print_span(sp1_c);
 
 	Span sp2 = Span(4);
-	sp2.addNumber(-30);
-	sp2.addNumber(-50);
-	sp2.addNumber(-51);
-	sp2.addNumber(30);
+	int ins[4] = {-51, -50, -30, 30};
+	sp2.addNumber(ins, 4);
 	print_span(sp2);
 	return (0);
 }
