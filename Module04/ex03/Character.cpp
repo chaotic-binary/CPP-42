@@ -1,8 +1,6 @@
 #include "Character.hpp"
 
-Character::Character()
-{
-}
+Character::Character() { }
 
 Character::Character(std::string const & name) \
 	: _name(name)
@@ -47,7 +45,7 @@ void				Character::_deepCopy(const Character &copy)
 		if (copy._materia[i])
 			this->_materia[i] = copy._materia[i]->clone();
 		else
-			_materia[i] = NULL;
+			_materia[i] = nullptr;
 	}
 }
 
@@ -68,7 +66,7 @@ void 			Character::equip(AMateria* item)
 void 				Character::unequip(int i)
 {
 	if (isEquiped(i))
-		this->_materia[i] = NULL;
+		this->_materia[i] = nullptr;
 }
 
 void 				Character::use(int i, ICharacter& target)
@@ -84,7 +82,7 @@ bool				Character::isEquiped(int i)
 		std::cout << "Wrong index\n";
 		return false;
 	}
-	if (this->_materia[i] == NULL)
+	if (this->_materia[i] == nullptr)
 	{
 		std::cout << "There is nothing in this place.\n";
 		return false;
