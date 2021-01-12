@@ -4,6 +4,8 @@
 # include <algorithm>
 # include <set>
 
+typedef	unsigned int	uint;
+
 class Span
 {
 public:

@@ -18,11 +18,11 @@ const std::string& Pony::getColor() const {
 	return (this->_color);
 }
 
-const bool Pony::getSleepingState() const {
+bool Pony::getSleepingState() const {
 	return (this->_is_sleeping);
 
 }
-const bool Pony::getLaughingState() const {
+bool Pony::getLaughingState() const {
 	return (this->_is_laughing);
 }
 

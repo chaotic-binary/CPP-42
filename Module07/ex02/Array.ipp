@@ -7,7 +7,7 @@ Array<T>::Array() \
 
 template <typename T>
 Array<T>::Array(uint n)
-	: _size(n), _arr(new T[n]())
+	: _arr(new T[n]()), _size(n)
 {}
 
 template<typename T>

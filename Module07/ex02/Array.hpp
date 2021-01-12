@@ -3,6 +3,8 @@
 
 # include <iostream>
 
+typedef	unsigned int	uint;
+
 template <typename T>
 class Array
 {

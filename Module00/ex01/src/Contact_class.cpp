@@ -1,4 +1,4 @@
-#include "phonebook.hpp"
+#include "../include/Contact_class.hpp"
 
 	int	Contact::_contats_count = 0;
 
@@ -18,7 +18,7 @@
 	Contact::Contact(void) { }
 	Contact::~Contact(void) { }
 
-	int	Contact::getContactCount(void)  { return (Contact::_contats_count); }
+	int	Contact::getContactCount(void) { return (Contact::_contats_count); }
 
 	void	Contact::CreateContact(void) {
 		this->_contact_entries[0] = std::to_string(++Contact::_contats_count);

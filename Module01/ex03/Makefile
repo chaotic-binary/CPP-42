@@ -1,31 +1,32 @@
-NAME		=   zombie
+NAME		=	zombie
 
-SRC			=   Zombie.cpp ZombieHorde.cpp
-O_DIR		=   ./bin
-OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o)) \
-				$(addprefix $(O_DIR)/, $(MAIN:cpp=o))
+SRC			=	Zombie.cpp ZombieHorde.cpp
+BIN			=	./bin
+OBJ			=	$(addprefix $(BIN)/, $(SRC:cpp=o)) \
+				$(addprefix $(BIN)/, $(MAIN:cpp=o))
+DEP			=	$(OBJ:%.o=%.d)
 INCLUDE		=	$(SRC:cpp=hpp)
-MAIN		=   main.cpp
-
+MAIN		=	main.cpp
+CC			=	clang++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(O_DIR)/%.o:%.cpp | $(O_DIR) $(INCLUDE)
-	@clang++ $(FLAGS) -o $@ -c $<
-	@./$(NAME)
+$(BIN)/%.o:%.cpp $(INCLUDE) | $(BIN)
+	$(CC) $(FLAGS) -MMD -c $< -o $@
 
 $(NAME): $(OBJ)
-	@clang++ $(FLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(FLAGS) $^ -o $@
 
-$(O_DIR):
-	@mkdir $(O_DIR)
+-include $(DEP)
+
+$(BIN):
+	@mkdir $(BIN)
 
 clean:
-	@rm -f $(OBJ)
-	@rmdir $(O_DIR)
+	@rm -rf $(BIN)
 	@echo "$(NAME) object files deleted"
 
 fclean: clean

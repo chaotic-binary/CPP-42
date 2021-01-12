@@ -1,24 +1,30 @@
 NAME		= test
 
-SRC			= main.cpp
-OBJ			= $(SRC:cpp=o)
-INC			= Array.hpp
-
-FLAGS		= -Wall -Wextra -Werror -std=c++98
+SRC			=	main.cpp
+BIN			=	./bin
+OBJ			=	$(addprefix $(BIN)/, $(SRC:cpp=o))
+DEP			=	$(OBJ:%.o=%.d)
+INCLUDE		=	Array.hpp Array.ipp
+CC			=	clang++
+FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-%.o:%.c $(INC)
-	@clang++ $(FLAGS) -o $@ -c $<
+$(BIN)/%.o:%.cpp $(INCLUDE) | $(BIN)
+	$(CC) $(FLAGS) -MMD -c $< -o $@
 
 $(NAME): $(OBJ)
-	@clang++ $(FLAGS) -o $(NAME) $(OBJ)
-	./$(NAME)
+	$(CC) $(FLAGS) $^ -o $@
+
+-include $(DEP)
+
+$(BIN):
+	@mkdir $(BIN)
 
 clean:
-	@rm -f $(OBJ)
+	@rm -rf $(BIN)
 	@echo "$(NAME) object files deleted"
 
 fclean: clean

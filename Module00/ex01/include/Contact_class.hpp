@@ -4,6 +4,7 @@
 # include <string>
 # include <iostream>
 # include <iomanip>
+# include "../include/phonebook.hpp"
 
 #define FIELDS_NUM 12
 #define WIDTH 10

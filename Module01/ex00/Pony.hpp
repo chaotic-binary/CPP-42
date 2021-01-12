@@ -13,8 +13,8 @@ class	Pony
 		const std::string&	getName() const;
 		const std::string&	getColor() const;
 
-		const bool	getSleepingState() const;
-		const bool	getLaughingState() const;
+		bool	getSleepingState() const;
+		bool	getLaughingState() const;
 
 		void	setSleepingState(bool state);
 		void	setLaughingState(bool state);

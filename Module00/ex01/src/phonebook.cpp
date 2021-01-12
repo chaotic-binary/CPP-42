@@ -1,4 +1,4 @@
-#include "phonebook.hpp"
+#include "../include/Contact_class.hpp"
 
 void	error_exit() {
 	std::cerr << "Input error!\n";
@@ -15,11 +15,11 @@ static int	index_search(void) {
 	try {
 		n = stoi(input);
 	} catch(std::exception &err) {
-		std::cerr << "Error! Wrong input, do SEARCH again\n";
+		std::cerr << "Error! Wrong input, repeat SEARCH\n";
 		return (-1);
 	}
 	if (n < 1 || n > Contact::getContactCount()) {
-		std::cerr << "Error! Index is incorrect, do SEARCH again!\n";
+		std::cerr << "Error! Index is incorrect, repeat SEARCH\n";
 		return (-1);
 	}
 	return (n - 1);
@@ -33,10 +33,10 @@ int	main(void) {
 	std::cout << "EXIT\n\n";
 	std::cout << "Your commands:\n";
 
-	std::string cmd;
-	Contact contacts[8];
-	Contact entry;
-	int n;
+	std::string	cmd;
+	Contact		contacts[8];
+	Contact		entry;
+	int			n;
 
 	while (std::getline(std::cin, cmd)) {
 		if (cmd == "EXIT")

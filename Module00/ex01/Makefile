@@ -2,29 +2,31 @@ NAME		=	phonebook
 
 SRC_DIR		=	./src/
 SRC			=	phonebook.cpp Contact_class.cpp
-O_DIR		=	./bin
-OBJ			=	$(addprefix $(O_DIR)/, $(SRC:cpp=o))
+BIN			=	./bin
+OBJ			=	$(addprefix $(BIN)/, $(SRC:cpp=o))
+DEP			= 	$(OBJ:%.o=%.d)
 I_DIR		=	./include
-INCLUDES	=	$(addprefix $(I_DIR)/, $(SRC:cpp=hpp))
-
+INCLUDE		=	$(addprefix $(I_DIR)/, $(SRC:cpp=hpp))
+CC			=	clang++
 FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(O_DIR)/%.o:./src/%.cpp $(INCLUDES) | $(O_DIR)
-	@clang++ $(FLAGS) -I $(I_DIR) -o $@ -c $<
+$(BIN)/%.o:./src/%.cpp $(INCLUDES) | $(BIN)
+	$(CC) $(FLAGS) -MMD -c $< -o $@
 
 $(NAME): $(OBJ)
-	@clang++ $(FLAGS) -I $(I_DIR) -o $(NAME) $(OBJ)
+	$(CC) $(FLAGS) $^ -o $@
 
-$(O_DIR):
-	@mkdir $(O_DIR)
+$(BIN):
+	@mkdir $(BIN)
+
+-include $(DEP)
 
 clean:
-	@rm -f $(OBJ)
-	@rmdir $(O_DIR)
+	@rm -rf $(BIN)
 	@echo "$(NAME) object files deleted"
 
 fclean: clean
