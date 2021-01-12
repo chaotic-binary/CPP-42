@@ -22,5 +22,5 @@ PlasmaRifle	&PlasmaRifle::operator=(const PlasmaRifle &copy)
 
 void	PlasmaRifle::attack(void) const
 {
-	std::cout << "* piouuu piouuu piouuu *" << std::endl;
+	std::cout << "* piouuu piouuu piouuu *\n";
 }

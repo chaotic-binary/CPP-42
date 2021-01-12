@@ -1,6 +1,14 @@
 NAME		=	test
 
-SRC			=	AWeapon.cpp PlasmaRifle.cpp PowerFist.cpp Enemy.cpp SuperMutant.cpp RadScorpion.cpp Character.cpp
+SRC			=	AWeapon.cpp \
+				PlasmaRifle.cpp \
+				PowerFist.cpp \
+				Enemy.cpp \
+				SuperMutant.cpp \
+				RadScorpion.cpp \
+				Character.cpp \
+				BlowingPigeon.cpp \
+				MadDictator.cpp 
 BIN			=	./bin
 OBJ			=	$(addprefix $(BIN)/, $(SRC:cpp=o)) \
 				$(addprefix $(BIN)/, $(MAIN:cpp=o))

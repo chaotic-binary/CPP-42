@@ -3,12 +3,12 @@
 SuperMutant::SuperMutant() \
 	: Enemy(170, "Super Mutant")
 {
-	std::cout << "Gaaah. Me want smash heads!" << std::endl;
+	std::cout << "Gaaah. Me want smash heads!\n";
 }
 
 SuperMutant::~SuperMutant()
 {
-	std::cout << "Aaargh..." << std::endl;
+	std::cout << "Aaargh...\n";
 }
 
 SuperMutant::SuperMutant(const SuperMutant &copy) \

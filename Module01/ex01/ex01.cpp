@@ -7,8 +7,6 @@ void	memoryLeak() {
 	delete panther;
 }
 
-/*
 int		main() {
 	memoryLeak();
 }
-*/

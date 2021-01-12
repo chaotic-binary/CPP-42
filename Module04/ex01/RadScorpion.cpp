@@ -1,20 +1,20 @@
 #include "RadScorpion.hpp"
 
 RadScorpion::RadScorpion() \
-	: Enemy(80, "RadScorpion")
+	: Enemy(80, "Rad Scorpion")
 {
-	std::cout << "* click click click *" << std::endl;
+	std::cout << "* click click click *\n";
 }
 
 RadScorpion::~RadScorpion()
 {
-	std::cout << "* SPROTCH *" << std::endl;
+	std::cout << "* SPROTCH *\n";
 }
 
 RadScorpion::RadScorpion(const RadScorpion &copy) \
 	: Enemy(copy)
 {
-	std::cout << "* click click click *" << std::endl;
+	std::cout << "* click click click *\n";
 }
 
 RadScorpion	&RadScorpion::operator=(const RadScorpion &copy)

@@ -22,5 +22,5 @@ PowerFist	&PowerFist::operator=(const PowerFist &copy)
 
 void	PowerFist::attack(void) const
 {
-	std::cout << "* pschhh... SBAM! *" << std::endl;
+	std::cout << "* pschhh... SBAM! *\n";
 }
