@@ -8,7 +8,6 @@ int main()
 	IMateriaSource* src = new MateriaSource();
 	Cure *cure = new Cure();
 	Ice *ice = new Ice();
-	AMateria *extra = ice;
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	src->learnMateria(ice);
@@ -43,6 +42,7 @@ int main()
 	me->use(4, *bob);
 	Character* empty = new Character("empty");
 	empty->use(0, *bob);
+	AMateria *extra = ice;
 	me->equip(extra);
 	src->learnMateria(extra);
 	bob->unequip(1);
