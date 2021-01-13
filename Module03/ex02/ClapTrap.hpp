@@ -34,9 +34,6 @@ public:
 	void			takeDamage(unsigned int amount);
 	void			beRepaired(unsigned int amount);
 
-	const std::string &getName() const;
-	unsigned char getModel() const;
-
 protected:
 	ClapTrap(const unsigned char model);
 
