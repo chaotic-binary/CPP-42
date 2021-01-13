@@ -2,7 +2,7 @@
 
 template <typename T>
 Array<T>::Array() \
-	: _size(0), _arr(new T[0]())
+	: _arr(new T[0]()), _size(0)
 {}
 
 template <typename T>

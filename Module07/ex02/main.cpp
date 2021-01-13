@@ -2,7 +2,11 @@
 
 int			main(void)
 {
-	std::cout << "Int array test:\n";
+	std::cout << "Empty array test:\n";
+	Array<int> empty;
+	std::cout << "size: " << empty.size() << std::endl;
+
+	std::cout << "\nInt array test:\n";
 	Array<int> intArr1(2);
 	std::cout << "size: " << intArr1.size() << std::endl;
 	Array<int> intArr2(5);
