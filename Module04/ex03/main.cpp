@@ -45,12 +45,14 @@ int main()
 	AMateria *extra = ice;
 	me->equip(extra);
 	src->learnMateria(extra);
-	bob->unequip(1);
+	empty->unequip(1);
+	me->unequip(20);
 	to_equip = src->createMateria("nonexistent");
 
 	delete bob; //deep copy of 2 materias deleted
 	delete me; //4 matrias deleted
 	delete src; //4 materias deleted
 	delete newGuy; //deep copy of 1 materia deleted
+	delete empty;
 	return 0;
 }
