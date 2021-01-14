@@ -1,9 +1,9 @@
-#include "ScavTrap.hpp"
-#include "SuperTrap.hpp"
+
+#include "NinjaTrap.hpp"
 
 int	main( void ) {
 	srand(time(0));
-	
+
 	SuperTrap SuperCat ("SuperCat");
 	SuperTrap SuperHuman ("Bob");
 	std::cout << std::endl;

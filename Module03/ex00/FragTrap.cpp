@@ -52,14 +52,14 @@ void	FragTrap::rangedAttack(std::string const & target) const {
 	_printLog();
 	std::cout << " attacks " << target << " at range, causing " \
 			<< _rangedAttackDamage << " points of damage\n";
-	std::cout << "Ha-HA!\n";
+	std::cout << "Nnnnice weather, isn't it?\n";
 }
 
 void	FragTrap::meleeAttack(std::string const & target) const {
 	_printLog();
 	std::cout << " attacks " << target << " causing " << _meleeAttackDamage << \
 				" points of melee damage\n";
-	std::cout << "BOOYAH!!\n";
+	std::cout << "* A very funny attack message. Ha-ha *\n";
 }
 
 void	FragTrap::_printLog() const {

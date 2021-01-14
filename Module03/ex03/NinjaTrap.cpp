@@ -25,50 +25,55 @@ NinjaTrap & NinjaTrap::operator=(NinjaTrap const & rhs) {
 	return (*this);
 }
 
+void	NinjaTrap::rangedAttack(std::string const &target) const {
+	ClapTrap::rangedAttack(target);
+	std::cout << "Bankai!!\n\n";
+}
+
 void	NinjaTrap::meleeAttack(std::string const &target) const {
 	ClapTrap::meleeAttack(target);
 	std::cout << "Ninjaaaaaaa!!\n\n";
 }
 
 void NinjaTrap::ninjaShoebox(ClapTrap const & target) const {
-	const std::string attacks[] = {	"Kuji-kiri",
-									"Tensa Zangetsu",
-									"Senbonzakura Kageyoshi",
-									"Sode no Shirayuki",
-									"Kannonbiraki Benihime Aratame" };
+	std::cout << "\nHey, newcomer?\n";
+	shoeboxAttackMessage(target);
+}
+
+void NinjaTrap::ninjaShoebox(FragTrap const & target) const {
+	std::cout << "\nHi, old iron thing!\n";
+	shoeboxAttackMessage(target);
+}
+
+void NinjaTrap::ninjaShoebox(ScavTrap const & target) const {
+	std::cout << "\nWow, ScavTraps are not extinct!\n";
+	shoeboxAttackMessage(target);
+}
+
+void NinjaTrap::ninjaShoebox(NinjaTrap const & target) const {
 
 	std::cout << std::endl;
-	unsigned char targetModel = target.getModel();
 	if (&target == this)
-		std::cout << "Harakiri!\n";
-	else if (targetModel == this->getModel())
-		std::cout << "Oh, brother! What about friendly fight?\n";
+		std::cout << "Let's practice harakiri!\n";
+	else
+		std::cout << "Oh, brother!\n";
+	shoeboxAttackMessage(target);
+}
 
-	switch(targetModel) {
-		case NN:
-			std::cout << "Ninjas are power!\n";
-			break;
-		case SC:
-			std::cout << "Hi, old iron thing! Fight?\n";
-			break;
-		case FR:
-			std::cout << "FR4G-TP is such a cool model! Let's have fun!\n";
-			break;
-		case SP:
-			std::cout << "You are shining so bright, SuperTrap!\n";
-			break;
-		default:
-			std::cout << "Hey, newcomer?\n";
-			break;
-	}
+void NinjaTrap::shoeboxAttackMessage(ClapTrap const & target) const
+{
+	const std::string attacks[] = {	"Kuji-kiri",
+								"Tensa Zangetsu",
+								"Senbonzakura Kageyoshi",
+								"Sode no Shirayuki",
+								"Kannonbiraki Benihime Aratame" };
 
 	_printLog();
 	std::cout << " is shoeboxing ";
 	if (&target == this)
 		std::cout << "himself\n";
 	else
-		std::cout << modelId[targetModel] << " " << target.getName() << std::endl;
+		std::cout << modelId[target.getModel()] << " " << target.getName() << std::endl;
 	unsigned int i = std::rand() % 5;
 	std::cout << attacks[i] << std::endl;
 }
-

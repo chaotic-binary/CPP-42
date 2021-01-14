@@ -1,4 +1,4 @@
-#include "SuperTrap.hpp"
+#include "NinjaTrap.hpp"
 
 SuperTrap::~SuperTrap(void) {
 	std::cout << "\nYou was special, we will miss you, ";
