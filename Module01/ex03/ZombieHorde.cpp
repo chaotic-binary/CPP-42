@@ -1,6 +1,7 @@
 #include "ZombieHorde.hpp"
 
 ZombieHorde::ZombieHorde(int n) {
+	this->_n = n;
 	if (n < 0) {
 		std::cerr << "Invalid number!\n";
 		this->_n = 0;
@@ -12,7 +13,6 @@ ZombieHorde::ZombieHorde(int n) {
 		std::cerr << "Too many zombies!\n";
 		return ;
 	}
-	this->_n = n;
 	for (int i = 0; i < n; i++) {
 		this->_horde[i] = Zombie(_makeRandomName(), "Random");
 	}
