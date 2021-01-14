@@ -8,11 +8,11 @@ ZombieEvent::~ZombieEvent() {
 	std::cout << "\nOops, it's sunlight, zombies are gone!\n";
 }
 
-void ZombieEvent::setZombieType(std::string type) {
+void ZombieEvent::setZombieType(const std::string & type) {
 	_type = type;
 }
 
-Zombie* ZombieEvent::newZombie(std::string name) {
+Zombie* ZombieEvent::newZombie(const std::string & name) {
 	return (new Zombie(name, _type));
 }
 

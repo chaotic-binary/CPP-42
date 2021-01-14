@@ -7,14 +7,14 @@
 class	Zombie
 {
 	public:
-		Zombie(std::string name, std::string type);
+		Zombie(const std::string & name, const std::string & type);
 		~Zombie();
 
 		void announce(void) const;
 
 	private:
-		std::string _name;
-		std::string _type;
+		const std::string _name;
+		const std::string _type;
 };
 
 #endif

@@ -7,7 +7,7 @@
 class	Pony
 {
 	public:
-		Pony(std::string name, std::string color);
+		Pony(const std::string & name, const std::string & color);
 		~Pony(void);
 
 		const std::string&	getName() const;

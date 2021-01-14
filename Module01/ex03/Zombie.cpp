@@ -2,7 +2,8 @@
 
 Zombie::Zombie(void) {}
 
-Zombie::Zombie(std::string name, std::string type) : _name(name), _type(type) {}
+Zombie::Zombie(const std::string & name, const std::string & type) \
+	: _name(name), _type(type) {}
 
 Zombie::~Zombie() {}
 
