@@ -2,11 +2,17 @@
 
 ZombieHorde::ZombieHorde(int n) {
 	if (n < 0) {
-		std::cout << "Invalid number! One zombie will be created\n";
-		n = 1;
+		std::cerr << "Invalid number!\n";
+		this->_n = 0;
+		return ;
+	}
+	try {
+		this->_horde = new Zombie[n];
+	} catch (std::exception &e) {
+		std::cerr << "Too many zombies!\n";
+		return ;
 	}
 	this->_n = n;
-	this->_horde = new Zombie[n];
 	for (int i = 0; i < n; i++) {
 		this->_horde[i] = Zombie(_makeRandomName(), "Random");
 	}

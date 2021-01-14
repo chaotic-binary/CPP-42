@@ -3,7 +3,7 @@
 int	main(void)
 {
 	srand(time(0));
-	
+
 	ZombieHorde horde(3);
 	horde.announce();
 
