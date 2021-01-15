@@ -17,6 +17,7 @@ int		main(void)
 		cur->meleeAttack();
 	}
 	delete vlc;
+	std::cout << std::endl;
 
 	ISpaceMarine* bill = new TacticalMarine;
 	ISpaceMarine* tim = new AssaultTerminator;
@@ -33,10 +34,14 @@ int		main(void)
 	std::cout << t->getCount() << " soldier(s) in the unit " << std::endl;
 	*b = *a; //test assignment
 	std::cout << b->getCount() << " soldier(s) in the unit " << std::endl;
+	std::cout << std::endl;
+
 	ISpaceMarine* cur = t->getUnit(0);
 	cur->battleCry();
 	cur->rangedAttack();
 	cur->meleeAttack();
+	std::cout << std::endl;
+
 	delete t;
 	delete a;
 	delete b;

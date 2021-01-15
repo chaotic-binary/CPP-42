@@ -6,7 +6,6 @@
 class Sorcerer
 {
 public:
-	Sorcerer();
 	Sorcerer(const std::string &name, const std::string &title);
 	Sorcerer(const Sorcerer &copy);
 	~Sorcerer();
@@ -18,6 +17,7 @@ public:
 	const std::string		&getTitle() const;
 
 	private:
+	Sorcerer();
 	std::string		_name;
 	std::string		_title;
 };

@@ -2,8 +2,7 @@
 
 Squad::Squad() \
 	: _unitCount(0), _units(nullptr)
-{
-}
+{}
 
 Squad::~Squad()
 {

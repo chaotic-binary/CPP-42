@@ -13,8 +13,7 @@ SuperMutant::~SuperMutant()
 
 SuperMutant::SuperMutant(const SuperMutant &copy) \
 	: Enemy(copy)
-{
-}
+{}
 
 SuperMutant	&SuperMutant::operator=(const SuperMutant &copy)
 {

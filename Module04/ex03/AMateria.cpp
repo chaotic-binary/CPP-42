@@ -21,9 +21,7 @@ AMateria::AMateria(const AMateria &copy) \
 AMateria	&AMateria::operator=(const AMateria &copy)
 {
 	if (this != &copy)
-	{
 		this->_xp = copy._xp;
-	}
 	return (*this);
 }
 

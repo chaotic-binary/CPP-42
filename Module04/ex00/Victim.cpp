@@ -22,9 +22,7 @@ Victim::Victim(const Victim &copy) : _name(copy._name)
 Victim	&Victim::operator=(const Victim &copy)
 {
 	if (this != &copy)
-	{
 		this->_name = copy._name;
-	}
 	return (*this);
 }
 
