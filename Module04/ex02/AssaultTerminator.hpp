@@ -9,7 +9,7 @@ class	AssaultTerminator : public ISpaceMarine
 public:
 	AssaultTerminator();
 	AssaultTerminator(const AssaultTerminator &copy);
-	~AssaultTerminator();
+	virtual ~AssaultTerminator();
 	AssaultTerminator &operator=(const AssaultTerminator &copy);
 
 	virtual ISpaceMarine*	clone() const;
