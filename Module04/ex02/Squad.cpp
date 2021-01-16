@@ -26,8 +26,19 @@ Squad::Squad(const Squad &copy)
 
 Squad	&Squad::operator=(const Squad &copy)
 {
-	if (this != &copy)
-		_deepCopy(copy);
+	if (this == &copy)
+		return (*this);
+		t_unitlist *tmp;
+	t_unitlist *unitptr = this->_units;
+	while (unitptr)
+	{
+		tmp = unitptr->next;
+		delete unitptr;
+		unitptr = tmp;
+	}
+	this->_units = nullptr;
+	this->_unitCount = 0;
+	_deepCopy(copy);
 	return (*this);
 }
 
@@ -73,16 +84,6 @@ int				Squad::push(ISpaceMarine* unit)
 
 void			Squad::_deepCopy(const Squad &copy)
 {
-	t_unitlist *tmp;
-	t_unitlist *unitptr = this->_units;
-	while (unitptr)
-	{
-		tmp = unitptr->next;
-		delete unitptr;
-		unitptr = tmp;
-	}
-	this->_units = nullptr;
-	this->_unitCount = 0;
 	t_unitlist *copyptr = copy._units;
 	for (int i = 0; i < copy._unitCount; ++i)
 	{

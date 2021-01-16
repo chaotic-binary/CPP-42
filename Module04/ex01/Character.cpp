@@ -1,21 +1,17 @@
 #include "Character.hpp"
 
 Character::Character()
-{
-}
+{}
 
 Character::Character(std::string const &name) : _name(name), _ap(40), _weapon(0)
-{
-}
+{}
 
 Character::~Character()
-{
-}
+{}
 
 Character::Character(const Character &copy) \
 	:_name(copy._name), _ap(copy._ap), _weapon(copy._weapon)
-{
-}
+{}
 
 Character	&Character::operator=(const Character &copy)
 {
