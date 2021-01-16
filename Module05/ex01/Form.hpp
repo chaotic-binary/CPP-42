@@ -35,7 +35,7 @@ public:
 
 private:
 	Form();
-	std::string const	_name;
+	const std::string 	_name;
 	bool				_signed;
 	const int			_signGrade;
 	const int			_execGrade;
