@@ -3,7 +3,7 @@
 Converter::Converter() {}
 
 Converter::Converter(std::string const & str) \
-	: _success(0), _d(0), _f(0), _i(0), _c(0)
+	: _d(0), _f(0), _i(0), _c(0), _success(0)
 {
 	if (isChar(str))
 		fromChar(str[0]);
