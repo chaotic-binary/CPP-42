@@ -7,7 +7,7 @@ int		main(void)
 	Form* tooLow;
 	try
 	{
-		tooHigh = new Form("ToHigh", 0, 20);
+		tooHigh = new Form("Too High", 0, 20);
 	}
 	catch(std::exception & e)
 	{
@@ -15,7 +15,7 @@ int		main(void)
 	}
 	try
 	{
-		tooHigh = new Form("ToHigh", 20, 0);
+		tooHigh = new Form("Too High", 20, 0);
 	}
 	catch(std::exception & e)
 	{
@@ -23,7 +23,7 @@ int		main(void)
 	}
 	try
 	{
-		tooLow = new Form("ToHigh", 20, 151);
+		tooLow = new Form("Too Low", 20, 151);
 	}
 	catch(std::exception & e)
 	{
@@ -31,7 +31,7 @@ int		main(void)
 	}
 	try
 	{
-		tooLow = new Form("ToHigh", 151, 20);
+		tooLow = new Form("Too Low", 151, 20);
 	}
 	catch(std::exception & e)
 	{
@@ -43,7 +43,7 @@ int		main(void)
 	std::cout << *someForm;
 	Form* someList = new Form("List of some stuff", 1, 1);
 	std::cout << *someList;
-	
+
 	Bureaucrat* bill = new Bureaucrat("Bill", 5);
 	std::cout << *bill;
 	Bureaucrat* tom = new Bureaucrat("Tom", 12);
