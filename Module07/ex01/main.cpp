@@ -18,4 +18,5 @@ int main(void)
 		std::string arr[4] = {"zero", "one", "two", "three"};
 		iter(arr, 4, print_element);
 	}
+	std::cout << std::endl;
 }
